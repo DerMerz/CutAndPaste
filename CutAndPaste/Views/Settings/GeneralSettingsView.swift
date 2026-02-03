@@ -6,23 +6,23 @@ struct GeneralSettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Toggle("Cut & Paste aktivieren", isOn: Binding(
+            Toggle("settings.general.enable".localized, isOn: Binding(
                 get: { viewModel.isEnabled },
                 set: { viewModel.updateIsEnabled($0) }
             ))
-            .help("Aktiviert oder deaktiviert die Cut & Paste Funktion")
+            .help("settings.general.enable.help".localized)
 
-            Toggle("Bei Anmeldung starten", isOn: Binding(
+            Toggle("settings.general.launch_at_login".localized, isOn: Binding(
                 get: { viewModel.launchAtLogin },
                 set: { viewModel.updateLaunchAtLogin($0) }
             ))
-            .help("Cut & Paste wird automatisch beim Anmelden gestartet")
+            .help("settings.general.launch_at_login.help".localized)
 
-            Toggle("Visuelles Feedback anzeigen", isOn: Binding(
+            Toggle("settings.general.visual_feedback".localized, isOn: Binding(
                 get: { viewModel.showVisualFeedback },
                 set: { viewModel.updateShowVisualFeedback($0) }
             ))
-            .help("Zeigt eine Benachrichtigung beim Ausschneiden und Einfügen")
+            .help("settings.general.visual_feedback.help".localized)
 
             Spacer()
         }

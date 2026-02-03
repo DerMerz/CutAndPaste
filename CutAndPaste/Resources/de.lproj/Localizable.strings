@@ -1,0 +1,97 @@
+/*
+  Localizable.strings (German)
+  CutAndPaste
+*/
+
+// MARK: - General
+"app.name" = "Cut & Paste";
+
+// MARK: - Menu Bar
+"menubar.status.ready" = "Bereit";
+"menubar.status.disabled" = "Deaktiviert";
+"menubar.status.cut_active" = "Ausschneiden aktiv";
+"menubar.status.permission_required" = "Berechtigung erforderlich";
+"menubar.toggle.enabled" = "Aktiviert";
+"menubar.cut_mode.files_ready" = "Dateien zum Verschieben bereit";
+"menubar.cut_mode.cancel" = "Abbrechen";
+"menubar.action.settings" = "Einstellungen...";
+"menubar.action.quit" = "Beenden";
+
+// MARK: - Permission Banner
+"permission.banner.title" = "Berechtigung erforderlich";
+"permission.banner.subtitle" = "Klicken zum Einrichten";
+
+// MARK: - Settings
+"settings.tab.general" = "Allgemein";
+"settings.tab.permissions" = "Berechtigungen";
+"settings.tab.about" = "Über";
+"settings.tab.debug" = "Debug";
+
+// MARK: - General Settings
+"settings.general.enable" = "Cut & Paste aktivieren";
+"settings.general.enable.help" = "Aktiviert oder deaktiviert die Cut & Paste Funktion";
+"settings.general.launch_at_login" = "Bei Anmeldung starten";
+"settings.general.launch_at_login.help" = "Cut & Paste wird automatisch beim Anmelden gestartet";
+"settings.general.visual_feedback" = "Visuelles Feedback anzeigen";
+"settings.general.visual_feedback.help" = "Zeigt eine Benachrichtigung beim Ausschneiden und Einfügen";
+
+// MARK: - Permissions Settings
+"settings.permissions.accessibility" = "Bedienungshilfen";
+"settings.permissions.accessibility.description" = "Erforderlich für das Abfangen von Tastatureingaben";
+"settings.permissions.accessibility.explanation" = "Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Cmd+X im Finder abzufangen.";
+"settings.permissions.status.granted" = "Erteilt";
+"settings.permissions.status.not_granted" = "Nicht erteilt";
+"settings.permissions.open_settings" = "Systemeinstellungen öffnen";
+
+// MARK: - Onboarding - Welcome
+"onboarding.welcome.title" = "Willkommen bei\nCut & Paste";
+"onboarding.welcome.subtitle" = "Endlich echtes Ausschneiden im Finder - wie bei Windows.";
+
+// MARK: - Onboarding - How It Works
+"onboarding.howitworks.title" = "So funktioniert's";
+"onboarding.howitworks.step1.title" = "Dateien auswählen";
+"onboarding.howitworks.step1.description" = "Wähle eine oder mehrere Dateien im Finder aus";
+"onboarding.howitworks.step2.title" = "Cmd+X drücken";
+"onboarding.howitworks.step2.description" = "Die Dateien werden zum Verschieben markiert";
+"onboarding.howitworks.step3.title" = "Zum Ziel navigieren";
+"onboarding.howitworks.step3.description" = "Öffne den Ordner, in den du verschieben möchtest";
+"onboarding.howitworks.step4.title" = "Cmd+V drücken";
+"onboarding.howitworks.step4.description" = "Die Dateien werden verschoben (nicht kopiert!)";
+
+// MARK: - Onboarding - Permission
+"onboarding.permission.granted.title" = "Berechtigung erteilt";
+"onboarding.permission.granted.description" = "Cut & Paste hat jetzt Zugriff auf die Bedienungshilfen.";
+"onboarding.permission.required.title" = "Berechtigung erforderlich";
+"onboarding.permission.required.description" = "Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Tastatureingaben im Finder abzufangen.";
+"onboarding.permission.button" = "Systemeinstellungen öffnen";
+
+// MARK: - Onboarding - Success
+"onboarding.success.title" = "Du bist bereit!";
+"onboarding.success.description" = "Cut & Paste läuft jetzt in deiner Menüleiste.\nDrücke Cmd+X im Finder, um loszulegen.";
+"onboarding.success.hint" = "Das Scheren-Symbol findest du oben rechts";
+"onboarding.success.launch_at_login" = "Bei Anmeldung starten";
+"onboarding.success.launch_at_login.recommended" = "Empfohlen für nahtloses Arbeiten";
+
+// MARK: - Onboarding - Navigation
+"onboarding.button.next" = "Weiter";
+"onboarding.button.back" = "Zurück";
+"onboarding.button.grant_permission" = "Berechtigung erteilen";
+"onboarding.button.get_started" = "Los geht's";
+
+// MARK: - Toast Messages
+"toast.cut" = "Ausgeschnitten";
+"toast.moved" = "Verschoben";
+
+// MARK: - Rating
+"rating.title" = "Gefällt dir Cut & Paste?";
+"rating.question" = "Gefällt dir die App?";
+"rating.button.yes" = "Ja!";
+"rating.button.no" = "Nicht wirklich";
+"rating.button.skip" = "Später fragen";
+"rating.feedback.title" = "Das tut uns leid";
+"rating.feedback.message" = "Möchtest du uns Feedback senden, damit wir uns verbessern können?";
+"rating.feedback.button" = "Feedback senden";
+
+// MARK: - About
+"about.version" = "Version %@";
+"about.copyright" = "© %@ Kevin Merz. Alle Rechte vorbehalten.";

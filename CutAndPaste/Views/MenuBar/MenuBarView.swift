@@ -32,7 +32,7 @@ struct MenuBarView: View {
             }
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("Cut & Paste")
+                Text("app.name".localized)
                     .font(.headline)
 
                 Text(viewModel.statusText)
@@ -53,11 +53,11 @@ struct MenuBarView: View {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundColor(.orange)
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Berechtigung erforderlich")
+                            Text("permission.banner.title".localized)
                                 .font(.caption)
                                 .fontWeight(.medium)
                                 .foregroundColor(.primary)
-                            Text("Klicken zum Einrichten")
+                            Text("permission.banner.subtitle".localized)
                                 .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
@@ -74,7 +74,7 @@ struct MenuBarView: View {
                 .buttonStyle(.plain)
             }
 
-            Toggle("Aktiviert", isOn: Binding(
+            Toggle("menubar.toggle.enabled".localized, isOn: Binding(
                 get: { viewModel.isEnabled },
                 set: { _ in viewModel.toggleEnabled() }
             ))
@@ -86,10 +86,10 @@ struct MenuBarView: View {
                 HStack {
                     Image(systemName: "scissors")
                         .foregroundColor(.green)
-                    Text("Dateien zum Verschieben bereit")
+                    Text("menubar.cut_mode.files_ready".localized)
                         .font(.caption)
                     Spacer()
-                    Button("Abbrechen") {
+                    Button("menubar.cut_mode.cancel".localized) {
                         viewModel.clearCutMode()
                     }
                     .buttonStyle(.borderless)
@@ -108,7 +108,7 @@ struct MenuBarView: View {
             Button(action: viewModel.openSettings) {
                 HStack {
                     Image(systemName: "gear")
-                    Text("Einstellungen...")
+                    Text("menubar.action.settings".localized)
                     Spacer()
                 }
             }
@@ -117,7 +117,7 @@ struct MenuBarView: View {
             Button(action: viewModel.quit) {
                 HStack {
                     Image(systemName: "power")
-                    Text("Beenden")
+                    Text("menubar.action.quit".localized)
                     Spacer()
                 }
             }

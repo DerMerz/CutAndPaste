@@ -8,10 +8,10 @@ struct PermissionsSettingsView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Bedienungshilfen")
+                    Text("settings.permissions.accessibility".localized)
                         .font(.headline)
 
-                    Text("Erforderlich für das Abfangen von Tastatureingaben")
+                    Text("settings.permissions.accessibility.description".localized)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -23,11 +23,11 @@ struct PermissionsSettingsView: View {
 
             if !viewModel.isAccessibilityEnabled {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Cmd+X im Finder abzufangen.")
+                    Text("settings.permissions.accessibility.explanation".localized)
                         .font(.caption)
                         .foregroundColor(.secondary)
 
-                    Button("Systemeinstellungen öffnen") {
+                    Button("settings.permissions.open_settings".localized) {
                         viewModel.openAccessibilityPreferences()
                     }
                 }
@@ -44,7 +44,7 @@ struct PermissionsSettingsView: View {
             Image(systemName: viewModel.isAccessibilityEnabled ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                 .foregroundColor(viewModel.isAccessibilityEnabled ? .green : .orange)
 
-            Text(viewModel.isAccessibilityEnabled ? "Erteilt" : "Nicht erteilt")
+            Text(viewModel.isAccessibilityEnabled ? "settings.permissions.status.granted".localized : "settings.permissions.status.not_granted".localized)
                 .font(.caption)
                 .foregroundColor(viewModel.isAccessibilityEnabled ? .green : .orange)
         }

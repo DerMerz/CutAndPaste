@@ -51,13 +51,13 @@ final class OnboardingViewModel: ObservableObject {
     var nextButtonTitle: String {
         switch currentStep {
         case .welcome:
-            return "Weiter"
+            return "onboarding.button.next".localized
         case .howItWorks:
-            return "Weiter"
+            return "onboarding.button.next".localized
         case .permission:
-            return isPermissionGranted ? "Weiter" : "Berechtigung erteilen"
+            return isPermissionGranted ? "onboarding.button.next".localized : "onboarding.button.grant_permission".localized
         case .success:
-            return "Los geht's"
+            return "onboarding.button.get_started".localized
         }
     }
 

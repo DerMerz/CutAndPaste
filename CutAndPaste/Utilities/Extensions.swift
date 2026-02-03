@@ -154,6 +154,18 @@ extension Binding where Value == Bool {
     }
 }
 
+// MARK: - String Localization Extension
+
+extension String {
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
+
+    func localized(with arguments: CVarArg...) -> String {
+        String(format: self.localized, arguments: arguments)
+    }
+}
+
 // MARK: - Custom Toggle Style
 
 struct ColoredSwitchToggleStyle: ToggleStyle {

@@ -1,0 +1,97 @@
+/*
+  Localizable.strings (Korean)
+  CutAndPaste
+*/
+
+// MARK: - General
+"app.name" = "Cut & Paste";
+
+// MARK: - Menu Bar
+"menubar.status.ready" = "준비됨";
+"menubar.status.disabled" = "비활성화됨";
+"menubar.status.cut_active" = "잘라내기 활성화";
+"menubar.status.permission_required" = "권한 필요";
+"menubar.toggle.enabled" = "활성화됨";
+"menubar.cut_mode.files_ready" = "파일 이동 준비 완료";
+"menubar.cut_mode.cancel" = "취소";
+"menubar.action.settings" = "설정...";
+"menubar.action.quit" = "종료";
+
+// MARK: - Permission Banner
+"permission.banner.title" = "권한 필요";
+"permission.banner.subtitle" = "클릭하여 설정";
+
+// MARK: - Settings
+"settings.tab.general" = "일반";
+"settings.tab.permissions" = "권한";
+"settings.tab.about" = "정보";
+"settings.tab.debug" = "디버그";
+
+// MARK: - General Settings
+"settings.general.enable" = "Cut & Paste 활성화";
+"settings.general.enable.help" = "Cut & Paste 기능을 활성화 또는 비활성화합니다";
+"settings.general.launch_at_login" = "로그인 시 시작";
+"settings.general.launch_at_login.help" = "로그인할 때 Cut & Paste가 자동으로 시작됩니다";
+"settings.general.visual_feedback" = "시각적 피드백 표시";
+"settings.general.visual_feedback.help" = "잘라내기 및 붙여넣기 시 알림을 표시합니다";
+
+// MARK: - Permissions Settings
+"settings.permissions.accessibility" = "손쉬운 사용";
+"settings.permissions.accessibility.description" = "키보드 입력을 가로채기 위해 필요합니다";
+"settings.permissions.accessibility.explanation" = "Cut & Paste가 Finder에서 Cmd+X를 가로채려면 손쉬운 사용 권한이 필요합니다.";
+"settings.permissions.status.granted" = "허용됨";
+"settings.permissions.status.not_granted" = "허용되지 않음";
+"settings.permissions.open_settings" = "시스템 환경설정 열기";
+
+// MARK: - Onboarding - Welcome
+"onboarding.welcome.title" = "Cut & Paste에\n오신 것을 환영합니다";
+"onboarding.welcome.subtitle" = "드디어 Finder에서 진정한 잘라내기 및 붙여넣기 - Windows처럼.";
+
+// MARK: - Onboarding - How It Works
+"onboarding.howitworks.title" = "사용 방법";
+"onboarding.howitworks.step1.title" = "파일 선택";
+"onboarding.howitworks.step1.description" = "Finder에서 하나 이상의 파일을 선택하세요";
+"onboarding.howitworks.step2.title" = "Cmd+X 누르기";
+"onboarding.howitworks.step2.description" = "파일이 이동 대상으로 표시됩니다";
+"onboarding.howitworks.step3.title" = "대상 위치로 이동";
+"onboarding.howitworks.step3.description" = "파일을 이동할 폴더를 엽니다";
+"onboarding.howitworks.step4.title" = "Cmd+V 누르기";
+"onboarding.howitworks.step4.description" = "파일이 이동됩니다 (복사가 아닙니다!)";
+
+// MARK: - Onboarding - Permission
+"onboarding.permission.granted.title" = "권한 허용됨";
+"onboarding.permission.granted.description" = "Cut & Paste가 이제 손쉬운 사용에 접근할 수 있습니다.";
+"onboarding.permission.required.title" = "권한 필요";
+"onboarding.permission.required.description" = "Cut & Paste가 Finder에서 키보드 입력을 가로채려면 손쉬운 사용 권한이 필요합니다.";
+"onboarding.permission.button" = "시스템 환경설정 열기";
+
+// MARK: - Onboarding - Success
+"onboarding.success.title" = "준비 완료!";
+"onboarding.success.description" = "Cut & Paste가 메뉴 막대에서 실행 중입니다.\nFinder에서 Cmd+X를 눌러 시작하세요.";
+"onboarding.success.hint" = "오른쪽 상단에서 가위 아이콘을 찾으세요";
+"onboarding.success.launch_at_login" = "로그인 시 시작";
+"onboarding.success.launch_at_login.recommended" = "원활한 작업 흐름을 위해 권장됨";
+
+// MARK: - Onboarding - Navigation
+"onboarding.button.next" = "다음";
+"onboarding.button.back" = "뒤로";
+"onboarding.button.grant_permission" = "권한 허용";
+"onboarding.button.get_started" = "시작하기";
+
+// MARK: - Toast Messages
+"toast.cut" = "잘라냄";
+"toast.moved" = "이동됨";
+
+// MARK: - Rating
+"rating.title" = "Cut & Paste가 마음에 드시나요?";
+"rating.question" = "이 앱이 마음에 드시나요?";
+"rating.button.yes" = "네!";
+"rating.button.no" = "별로요";
+"rating.button.skip" = "나중에 물어보기";
+"rating.feedback.title" = "유감입니다";
+"rating.feedback.message" = "개선을 위해 피드백을 보내주시겠어요?";
+"rating.feedback.button" = "피드백 보내기";
+
+// MARK: - About
+"about.version" = "버전 %@";
+"about.copyright" = "© %@ Kevin Merz. All rights reserved.";

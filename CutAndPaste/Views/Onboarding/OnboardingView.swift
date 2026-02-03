@@ -39,7 +39,7 @@ struct OnboardingView: View {
             // Navigation buttons
             HStack {
                 if viewModel.canGoBack {
-                    Button("Zurück") {
+                    Button("onboarding.button.back".localized) {
                         viewModel.previous()
                     }
                     .buttonStyle(BorderlessButtonStyle())
@@ -75,12 +75,12 @@ struct WelcomeStepView: View {
                 .font(.system(size: 80))
                 .foregroundColor(.accentColor)
 
-            Text("Willkommen bei\nCut & Paste")
+            Text("onboarding.welcome.title".localized)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
-            Text("Endlich echtes Ausschneiden im Finder - wie bei Windows.")
+            Text("onboarding.welcome.subtitle".localized)
                 .font(.title3)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -94,7 +94,7 @@ struct WelcomeStepView: View {
 struct HowItWorksStepView: View {
     var body: some View {
         VStack(spacing: 24) {
-            Text("So funktioniert's")
+            Text("onboarding.howitworks.title".localized)
                 .font(.title)
                 .fontWeight(.bold)
 
@@ -102,29 +102,29 @@ struct HowItWorksStepView: View {
                 StepRow(
                     number: 1,
                     icon: "doc.on.doc",
-                    title: "Dateien auswählen",
-                    description: "Wähle eine oder mehrere Dateien im Finder aus"
+                    title: "onboarding.howitworks.step1.title".localized,
+                    description: "onboarding.howitworks.step1.description".localized
                 )
 
                 StepRow(
                     number: 2,
                     icon: "command",
-                    title: "Cmd+X drücken",
-                    description: "Die Dateien werden zum Verschieben markiert"
+                    title: "onboarding.howitworks.step2.title".localized,
+                    description: "onboarding.howitworks.step2.description".localized
                 )
 
                 StepRow(
                     number: 3,
                     icon: "folder",
-                    title: "Zum Ziel navigieren",
-                    description: "Öffne den Ordner, in den du verschieben möchtest"
+                    title: "onboarding.howitworks.step3.title".localized,
+                    description: "onboarding.howitworks.step3.description".localized
                 )
 
                 StepRow(
                     number: 4,
                     icon: "arrow.right.doc.on.clipboard",
-                    title: "Cmd+V drücken",
-                    description: "Die Dateien werden verschoben (nicht kopiert!)"
+                    title: "onboarding.howitworks.step4.title".localized,
+                    description: "onboarding.howitworks.step4.description".localized
                 )
             }
             .padding(.horizontal, 20)
@@ -189,20 +189,20 @@ struct PermissionStepView: View {
                 }
             }
 
-            Text(isGranted ? "Berechtigung erteilt" : "Berechtigung erforderlich")
+            Text(isGranted ? "onboarding.permission.granted.title".localized : "onboarding.permission.required.title".localized)
                 .font(.title)
                 .fontWeight(.bold)
 
             Text(isGranted
-                 ? "Cut & Paste hat jetzt Zugriff auf die Bedienungshilfen."
-                 : "Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Tastatureingaben im Finder abzufangen.")
+                 ? "onboarding.permission.granted.description".localized
+                 : "onboarding.permission.required.description".localized)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
 
             if !isGranted {
-                Button("Systemeinstellungen öffnen") {
+                Button("onboarding.permission.button".localized) {
                     onRequestPermission()
                 }
             }
@@ -235,11 +235,11 @@ struct SuccessStepView: View {
                     .animation(.spring(response: 0.4, dampingFraction: 0.6), value: showCheckmark)
             }
 
-            Text("Du bist bereit!")
+            Text("onboarding.success.title".localized)
                 .font(.largeTitle)
                 .fontWeight(.bold)
 
-            Text("Cut & Paste läuft jetzt in deiner Menüleiste.\nDrücke Cmd+X im Finder, um loszulegen.")
+            Text("onboarding.success.description".localized)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -258,9 +258,9 @@ struct SuccessStepView: View {
                             .font(.system(size: 16))
                             .foregroundColor(.accentColor)
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Bei Anmeldung starten")
+                            Text("onboarding.success.launch_at_login".localized)
                                 .font(.body)
-                            Text("Empfohlen für nahtloses Arbeiten")
+                            Text("onboarding.success.launch_at_login.recommended".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -275,7 +275,7 @@ struct SuccessStepView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
 
-                Text("Das Scheren-Symbol findest du oben rechts")
+                Text("onboarding.success.hint".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

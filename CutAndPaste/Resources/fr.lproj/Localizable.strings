@@ -1,0 +1,97 @@
+/*
+  Localizable.strings (French)
+  CutAndPaste
+*/
+
+// MARK: - General
+"app.name" = "Cut & Paste";
+
+// MARK: - Menu Bar
+"menubar.status.ready" = "Prêt";
+"menubar.status.disabled" = "Désactivé";
+"menubar.status.cut_active" = "Couper actif";
+"menubar.status.permission_required" = "Autorisation requise";
+"menubar.toggle.enabled" = "Activé";
+"menubar.cut_mode.files_ready" = "Fichiers prêts à déplacer";
+"menubar.cut_mode.cancel" = "Annuler";
+"menubar.action.settings" = "Réglages...";
+"menubar.action.quit" = "Quitter";
+
+// MARK: - Permission Banner
+"permission.banner.title" = "Autorisation requise";
+"permission.banner.subtitle" = "Cliquer pour configurer";
+
+// MARK: - Settings
+"settings.tab.general" = "Général";
+"settings.tab.permissions" = "Autorisations";
+"settings.tab.about" = "À propos";
+"settings.tab.debug" = "Débogage";
+
+// MARK: - General Settings
+"settings.general.enable" = "Activer Cut & Paste";
+"settings.general.enable.help" = "Active ou désactive la fonction Cut & Paste";
+"settings.general.launch_at_login" = "Lancer au démarrage";
+"settings.general.launch_at_login.help" = "Cut & Paste démarrera automatiquement à la connexion";
+"settings.general.visual_feedback" = "Afficher le retour visuel";
+"settings.general.visual_feedback.help" = "Affiche une notification lors du couper-coller";
+
+// MARK: - Permissions Settings
+"settings.permissions.accessibility" = "Accessibilité";
+"settings.permissions.accessibility.description" = "Requis pour intercepter les entrées clavier";
+"settings.permissions.accessibility.explanation" = "Cut & Paste a besoin de l'autorisation d'accessibilité pour intercepter Cmd+X dans le Finder.";
+"settings.permissions.status.granted" = "Accordé";
+"settings.permissions.status.not_granted" = "Non accordé";
+"settings.permissions.open_settings" = "Ouvrir les Préférences Système";
+
+// MARK: - Onboarding - Welcome
+"onboarding.welcome.title" = "Bienvenue dans\nCut & Paste";
+"onboarding.welcome.subtitle" = "Enfin, un vrai couper-coller dans le Finder - comme sous Windows.";
+
+// MARK: - Onboarding - How It Works
+"onboarding.howitworks.title" = "Comment ça marche";
+"onboarding.howitworks.step1.title" = "Sélectionner les fichiers";
+"onboarding.howitworks.step1.description" = "Sélectionnez un ou plusieurs fichiers dans le Finder";
+"onboarding.howitworks.step2.title" = "Appuyer sur Cmd+X";
+"onboarding.howitworks.step2.description" = "Les fichiers seront marqués pour le déplacement";
+"onboarding.howitworks.step3.title" = "Naviguer vers la destination";
+"onboarding.howitworks.step3.description" = "Ouvrez le dossier où vous voulez déplacer les fichiers";
+"onboarding.howitworks.step4.title" = "Appuyer sur Cmd+V";
+"onboarding.howitworks.step4.description" = "Les fichiers seront déplacés (pas copiés !)";
+
+// MARK: - Onboarding - Permission
+"onboarding.permission.granted.title" = "Autorisation accordée";
+"onboarding.permission.granted.description" = "Cut & Paste a maintenant accès à l'accessibilité.";
+"onboarding.permission.required.title" = "Autorisation requise";
+"onboarding.permission.required.description" = "Cut & Paste a besoin de l'autorisation d'accessibilité pour intercepter les entrées clavier dans le Finder.";
+"onboarding.permission.button" = "Ouvrir les Préférences Système";
+
+// MARK: - Onboarding - Success
+"onboarding.success.title" = "Vous êtes prêt !";
+"onboarding.success.description" = "Cut & Paste s'exécute maintenant dans votre barre de menus.\nAppuyez sur Cmd+X dans le Finder pour commencer.";
+"onboarding.success.hint" = "Trouvez l'icône des ciseaux en haut à droite";
+"onboarding.success.launch_at_login" = "Lancer au démarrage";
+"onboarding.success.launch_at_login.recommended" = "Recommandé pour un flux de travail fluide";
+
+// MARK: - Onboarding - Navigation
+"onboarding.button.next" = "Suivant";
+"onboarding.button.back" = "Retour";
+"onboarding.button.grant_permission" = "Accorder l'autorisation";
+"onboarding.button.get_started" = "Commencer";
+
+// MARK: - Toast Messages
+"toast.cut" = "Coupé";
+"toast.moved" = "Déplacé";
+
+// MARK: - Rating
+"rating.title" = "Vous aimez Cut & Paste ?";
+"rating.question" = "Aimez-vous l'application ?";
+"rating.button.yes" = "Oui !";
+"rating.button.no" = "Pas vraiment";
+"rating.button.skip" = "Demander plus tard";
+"rating.feedback.title" = "Nous sommes désolés";
+"rating.feedback.message" = "Souhaitez-vous nous envoyer vos commentaires pour nous aider à améliorer ?";
+"rating.feedback.button" = "Envoyer un commentaire";
+
+// MARK: - About
+"about.version" = "Version %@";
+"about.copyright" = "© %@ Kevin Merz. Tous droits réservés.";

@@ -1,0 +1,97 @@
+/*
+  Localizable.strings (Simplified Chinese)
+  CutAndPaste
+*/
+
+// MARK: - General
+"app.name" = "Cut & Paste";
+
+// MARK: - Menu Bar
+"menubar.status.ready" = "就绪";
+"menubar.status.disabled" = "已禁用";
+"menubar.status.cut_active" = "剪切中";
+"menubar.status.permission_required" = "需要权限";
+"menubar.toggle.enabled" = "已启用";
+"menubar.cut_mode.files_ready" = "文件已准备好移动";
+"menubar.cut_mode.cancel" = "取消";
+"menubar.action.settings" = "设置...";
+"menubar.action.quit" = "退出";
+
+// MARK: - Permission Banner
+"permission.banner.title" = "需要权限";
+"permission.banner.subtitle" = "点击设置";
+
+// MARK: - Settings
+"settings.tab.general" = "通用";
+"settings.tab.permissions" = "权限";
+"settings.tab.about" = "关于";
+"settings.tab.debug" = "调试";
+
+// MARK: - General Settings
+"settings.general.enable" = "启用 Cut & Paste";
+"settings.general.enable.help" = "启用或禁用 Cut & Paste 功能";
+"settings.general.launch_at_login" = "登录时启动";
+"settings.general.launch_at_login.help" = "登录时自动启动 Cut & Paste";
+"settings.general.visual_feedback" = "显示视觉反馈";
+"settings.general.visual_feedback.help" = "剪切和粘贴时显示通知";
+
+// MARK: - Permissions Settings
+"settings.permissions.accessibility" = "辅助功能";
+"settings.permissions.accessibility.description" = "需要此权限来拦截键盘输入";
+"settings.permissions.accessibility.explanation" = "Cut & Paste 需要辅助功能权限才能在访达中拦截 Cmd+X。";
+"settings.permissions.status.granted" = "已授予";
+"settings.permissions.status.not_granted" = "未授予";
+"settings.permissions.open_settings" = "打开系统偏好设置";
+
+// MARK: - Onboarding - Welcome
+"onboarding.welcome.title" = "欢迎使用\nCut & Paste";
+"onboarding.welcome.subtitle" = "终于可以在访达中真正剪切粘贴了 - 就像 Windows 一样。";
+
+// MARK: - Onboarding - How It Works
+"onboarding.howitworks.title" = "使用方法";
+"onboarding.howitworks.step1.title" = "选择文件";
+"onboarding.howitworks.step1.description" = "在访达中选择一个或多个文件";
+"onboarding.howitworks.step2.title" = "按 Cmd+X";
+"onboarding.howitworks.step2.description" = "文件将被标记为待移动";
+"onboarding.howitworks.step3.title" = "导航到目标位置";
+"onboarding.howitworks.step3.description" = "打开您要移动文件的文件夹";
+"onboarding.howitworks.step4.title" = "按 Cmd+V";
+"onboarding.howitworks.step4.description" = "文件将被移动（不是复制！）";
+
+// MARK: - Onboarding - Permission
+"onboarding.permission.granted.title" = "权限已授予";
+"onboarding.permission.granted.description" = "Cut & Paste 现在可以访问辅助功能了。";
+"onboarding.permission.required.title" = "需要权限";
+"onboarding.permission.required.description" = "Cut & Paste 需要辅助功能权限才能在访达中拦截键盘输入。";
+"onboarding.permission.button" = "打开系统偏好设置";
+
+// MARK: - Onboarding - Success
+"onboarding.success.title" = "准备就绪！";
+"onboarding.success.description" = "Cut & Paste 正在菜单栏中运行。\n在访达中按 Cmd+X 开始使用。";
+"onboarding.success.hint" = "在右上角找到剪刀图标";
+"onboarding.success.launch_at_login" = "登录时启动";
+"onboarding.success.launch_at_login.recommended" = "推荐，以获得无缝体验";
+
+// MARK: - Onboarding - Navigation
+"onboarding.button.next" = "下一步";
+"onboarding.button.back" = "返回";
+"onboarding.button.grant_permission" = "授予权限";
+"onboarding.button.get_started" = "开始使用";
+
+// MARK: - Toast Messages
+"toast.cut" = "已剪切";
+"toast.moved" = "已移动";
+
+// MARK: - Rating
+"rating.title" = "喜欢 Cut & Paste 吗？";
+"rating.question" = "您喜欢这个应用吗？";
+"rating.button.yes" = "喜欢！";
+"rating.button.no" = "不太喜欢";
+"rating.button.skip" = "稍后再问";
+"rating.feedback.title" = "很抱歉";
+"rating.feedback.message" = "您愿意给我们发送反馈以帮助我们改进吗？";
+"rating.feedback.button" = "发送反馈";
+
+// MARK: - About
+"about.version" = "版本 %@";
+"about.copyright" = "© %@ Kevin Merz. 保留所有权利。";

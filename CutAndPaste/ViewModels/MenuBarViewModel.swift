@@ -45,15 +45,15 @@ final class MenuBarViewModel: ObservableObject {
 
     var statusText: String {
         if !isAccessibilityEnabled {
-            return "Berechtigung erforderlich"
+            return "menubar.status.permission_required".localized
         }
         if !isEnabled {
-            return "Deaktiviert"
+            return "menubar.status.disabled".localized
         }
         if isCutModeActive {
-            return "Ausschneiden aktiv"
+            return "menubar.status.cut_active".localized
         }
-        return "Bereit"
+        return "menubar.status.ready".localized
     }
 
     var statusColor: NSColor {
@@ -110,12 +110,12 @@ final class MenuBarViewModel: ObservableObject {
     private func setupEventTapCallbacks() {
         eventTapService.onCutPerformed = { [weak self] in
             guard let self = self, self.settingsManager.showVisualFeedback else { return }
-            self.showToastMessage("Ausgeschnitten")
+            self.showToastMessage("toast.cut".localized)
         }
 
         eventTapService.onPastePerformed = { [weak self] in
             guard let self = self, self.settingsManager.showVisualFeedback else { return }
-            self.showToastMessage("Verschoben")
+            self.showToastMessage("toast.moved".localized)
         }
     }
 
