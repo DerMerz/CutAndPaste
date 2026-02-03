@@ -8,6 +8,8 @@ final class SettingsUITests: XCTestCase {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["--uitesting", "--skip-onboarding"]
+        // Use English as default test language
+        app.launchArguments.append(contentsOf: ["-AppleLanguages", "(en)", "-AppleLocale", "en"])
         app.launch()
     }
 
@@ -18,11 +20,9 @@ final class SettingsUITests: XCTestCase {
     // MARK: - Menu Bar Tests
 
     func testMenuBar_statusItemExists() throws {
-        // The status item should exist in the menu bar
-        // Note: Testing menu bar items requires specific setup
-
-        // We can test that the app launched successfully
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5))
+        // Menu bar apps run in background, not foreground
+        // We can test that the app launched successfully by checking it's running
+        XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5) || app.wait(for: .runningForeground, timeout: 1))
     }
 
     // MARK: - Settings Window Tests
@@ -32,7 +32,7 @@ final class SettingsUITests: XCTestCase {
         openSettings()
 
         // Then settings window should appear
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
 
         if settingsWindow.waitForExistence(timeout: 5) {
             XCTAssertTrue(settingsWindow.exists)
@@ -43,13 +43,13 @@ final class SettingsUITests: XCTestCase {
         // Open settings
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
-        // Check for tabs
-        let generalTab = settingsWindow.buttons["Allgemein"]
-        let permissionsTab = settingsWindow.buttons["Berechtigungen"]
-        let aboutTab = settingsWindow.buttons["Über"]
+        // Check for tabs (English)
+        let generalTab = settingsWindow.buttons["General"]
+        let permissionsTab = settingsWindow.buttons["Permissions"]
+        let aboutTab = settingsWindow.buttons["About"]
 
         // At least some navigation should exist
         XCTAssertTrue(settingsWindow.exists)
@@ -60,19 +60,19 @@ final class SettingsUITests: XCTestCase {
     func testGeneralSettings_togglesExist() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         // Navigate to General tab
-        let generalTab = settingsWindow.buttons["Allgemein"]
+        let generalTab = settingsWindow.buttons["General"]
         if generalTab.exists {
             generalTab.tap()
         }
 
-        // Check for toggles
-        let enableToggle = settingsWindow.toggles["Cut & Paste aktivieren"]
-        let launchToggle = settingsWindow.toggles["Bei Anmeldung starten"]
-        let feedbackToggle = settingsWindow.toggles["Visuelles Feedback anzeigen"]
+        // Check for toggles (English)
+        let enableToggle = settingsWindow.toggles["Enable Cut & Paste"]
+        let launchToggle = settingsWindow.toggles["Launch at login"]
+        let feedbackToggle = settingsWindow.toggles["Show visual feedback"]
 
         // Verify the window is showing settings
         XCTAssertTrue(settingsWindow.exists)
@@ -81,11 +81,11 @@ final class SettingsUITests: XCTestCase {
     func testGeneralSettings_enableToggle_works() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
-        // Find enable toggle
-        let enableToggle = settingsWindow.toggles["Cut & Paste aktivieren"]
+        // Find enable toggle (English)
+        let enableToggle = settingsWindow.toggles["Enable Cut & Paste"]
 
         if enableToggle.exists {
             // Get initial state
@@ -108,16 +108,16 @@ final class SettingsUITests: XCTestCase {
     func testPermissionsSettings_showsAccessibilityStatus() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
-        // Navigate to Permissions tab
-        let permissionsTab = settingsWindow.buttons["Berechtigungen"]
+        // Navigate to Permissions tab (English)
+        let permissionsTab = settingsWindow.buttons["Permissions"]
         if permissionsTab.exists {
             permissionsTab.tap()
 
-            // Check for accessibility label
-            let accessibilityLabel = settingsWindow.staticTexts["Bedienungshilfen"]
+            // Check for accessibility label (English)
+            let accessibilityLabel = settingsWindow.staticTexts["Accessibility"]
             XCTAssertTrue(accessibilityLabel.waitForExistence(timeout: 2))
         }
     }
@@ -127,11 +127,11 @@ final class SettingsUITests: XCTestCase {
     func testAboutSettings_showsAppInfo() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
-        // Navigate to About tab
-        let aboutTab = settingsWindow.buttons["Über"]
+        // Navigate to About tab (English)
+        let aboutTab = settingsWindow.buttons["About"]
         if aboutTab.exists {
             aboutTab.tap()
 
@@ -144,16 +144,16 @@ final class SettingsUITests: XCTestCase {
     func testAboutSettings_feedbackButtonExists() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
-        // Navigate to About tab
-        let aboutTab = settingsWindow.buttons["Über"]
+        // Navigate to About tab (English)
+        let aboutTab = settingsWindow.buttons["About"]
         if aboutTab.exists {
             aboutTab.tap()
 
-            // Check for feedback button
-            let feedbackButton = settingsWindow.buttons["Feedback senden"]
+            // Check for feedback button (English)
+            let feedbackButton = settingsWindow.buttons["Send feedback"]
             XCTAssertTrue(feedbackButton.waitForExistence(timeout: 2))
         }
     }
@@ -164,7 +164,7 @@ final class SettingsUITests: XCTestCase {
     func testDebugSettings_tabExists() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         // Check for Debug tab
@@ -175,7 +175,7 @@ final class SettingsUITests: XCTestCase {
     func testDebugSettings_showsRatingState() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         // Navigate to Debug tab
@@ -192,7 +192,7 @@ final class SettingsUITests: XCTestCase {
     func testDebugSettings_triggerRatingPrompt() throws {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         // Navigate to Debug tab
@@ -225,10 +225,10 @@ final class SettingsUITests: XCTestCase {
         let ratingWindow = app.windows["Feedback"]
         guard ratingWindow.waitForExistence(timeout: 5) else { return }
 
-        // Check for all buttons
-        let yesButton = ratingWindow.buttons["Ja, die App ist toll!"]
-        let noButton = ratingWindow.buttons["Nein, ich habe Verbesserungsvorschläge"]
-        let skipButton = ratingWindow.buttons["Später erinnern"]
+        // Check for all buttons (English)
+        let yesButton = ratingWindow.buttons["Yes!"]
+        let noButton = ratingWindow.buttons["Not really"]
+        let skipButton = ratingWindow.buttons["Ask me later"]
 
         XCTAssertTrue(yesButton.exists)
         XCTAssertTrue(noButton.exists)
@@ -243,8 +243,8 @@ final class SettingsUITests: XCTestCase {
         let ratingWindow = app.windows["Feedback"]
         guard ratingWindow.waitForExistence(timeout: 5) else { return }
 
-        // Tap skip
-        let skipButton = ratingWindow.buttons["Später erinnern"]
+        // Tap skip (English)
+        let skipButton = ratingWindow.buttons["Ask me later"]
         if skipButton.exists {
             skipButton.tap()
 
@@ -272,7 +272,7 @@ final class SettingsUITests: XCTestCase {
     private func triggerRatingPrompt() {
         openSettings()
 
-        let settingsWindow = app.windows["Cut & Paste Einstellungen"]
+        let settingsWindow = app.windows.firstMatch
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         let debugTab = settingsWindow.buttons["Debug"]
