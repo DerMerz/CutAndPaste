@@ -62,9 +62,7 @@ final class SettingsViewModel: ObservableObject {
     }
 
     func openAppStore() {
-        if let url = URL(string: Constants.URLs.appStorePage) {
-            NSWorkspace.shared.open(url)
-        }
+        ratingService.showPromptFromUser()
     }
 
     // MARK: - Debug Methods

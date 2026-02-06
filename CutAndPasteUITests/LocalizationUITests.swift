@@ -19,7 +19,7 @@ final class LocalizationUITests: XCTestCase {
     func testEnglishLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("en")
 
-        let welcomeTitle = app.staticTexts["Welcome to\nCut & Paste"]
+        let welcomeTitle = app.staticTexts["Welcome to\nCut & Place"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "English welcome title should be displayed")
         }
@@ -62,7 +62,7 @@ final class LocalizationUITests: XCTestCase {
     func testGermanLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("de")
 
-        let welcomeTitle = app.staticTexts["Willkommen bei\nCut & Paste"]
+        let welcomeTitle = app.staticTexts["Willkommen bei\nCut & Place"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "German welcome title should be displayed")
         }
@@ -105,7 +105,7 @@ final class LocalizationUITests: XCTestCase {
     func testFrenchLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("fr")
 
-        let welcomeTitle = app.staticTexts["Bienvenue dans\nCut & Paste"]
+        let welcomeTitle = app.staticTexts["Bienvenue dans\nCut & Place"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "French welcome title should be displayed")
         }
@@ -119,7 +119,7 @@ final class LocalizationUITests: XCTestCase {
     func testSpanishLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("es")
 
-        let welcomeTitle = app.staticTexts["Bienvenido a\nCut & Paste"]
+        let welcomeTitle = app.staticTexts["Bienvenido a\nCut & Place"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "Spanish welcome title should be displayed")
         }
@@ -133,7 +133,7 @@ final class LocalizationUITests: XCTestCase {
     func testJapaneseLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("ja")
 
-        let welcomeTitle = app.staticTexts["Cut & Paste へ\nようこそ"]
+        let welcomeTitle = app.staticTexts["Cut & Place へ\nようこそ"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "Japanese welcome title should be displayed")
         }
@@ -147,7 +147,7 @@ final class LocalizationUITests: XCTestCase {
     func testChineseLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("zh-Hans")
 
-        let welcomeTitle = app.staticTexts["欢迎使用\nCut & Paste"]
+        let welcomeTitle = app.staticTexts["欢迎使用\nCut & Place"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "Chinese welcome title should be displayed")
         }
@@ -161,7 +161,7 @@ final class LocalizationUITests: XCTestCase {
     func testKoreanLocalization_OnboardingWelcome() throws {
         launchAppWithLocale("ko")
 
-        let welcomeTitle = app.staticTexts["Cut & Paste에\n오신 것을 환영합니다"]
+        let welcomeTitle = app.staticTexts["Cut & Place에\n오신 것을 환영합니다"]
         if welcomeTitle.waitForExistence(timeout: 5) {
             XCTAssertTrue(welcomeTitle.exists, "Korean welcome title should be displayed")
         }

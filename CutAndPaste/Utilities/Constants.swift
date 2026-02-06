@@ -5,8 +5,8 @@ enum Constants {
     // MARK: - App Info
 
     enum App {
-        static let name = "Cut & Paste"
-        static let bundleIdentifier = "com.kevinmerz.cutandpaste"
+        static let name = "Cut & Place"
+        static let bundleIdentifier = "de.merzkevin.cutandmove"
         static let supportEmail = "MerzKevin@me.com"
         static let appStoreId = "" // Will be set after App Store submission
 

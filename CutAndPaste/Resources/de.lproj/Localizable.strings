@@ -4,7 +4,7 @@
 */
 
 // MARK: - General
-"app.name" = "Cut & Paste";
+"app.name" = "Cut & Place";
 
 // MARK: - Menu Bar
 "menubar.status.ready" = "Bereit";
@@ -28,23 +28,23 @@
 "settings.tab.debug" = "Debug";
 
 // MARK: - General Settings
-"settings.general.enable" = "Cut & Paste aktivieren";
-"settings.general.enable.help" = "Aktiviert oder deaktiviert die Cut & Paste Funktion";
+"settings.general.enable" = "Cut & Place aktivieren";
+"settings.general.enable.help" = "Aktiviert oder deaktiviert die Cut & Place Funktion";
 "settings.general.launch_at_login" = "Bei Anmeldung starten";
-"settings.general.launch_at_login.help" = "Cut & Paste wird automatisch beim Anmelden gestartet";
+"settings.general.launch_at_login.help" = "Cut & Place wird automatisch beim Anmelden gestartet";
 "settings.general.visual_feedback" = "Visuelles Feedback anzeigen";
 "settings.general.visual_feedback.help" = "Zeigt eine Benachrichtigung beim Ausschneiden und Einfügen";
 
 // MARK: - Permissions Settings
 "settings.permissions.accessibility" = "Bedienungshilfen";
 "settings.permissions.accessibility.description" = "Erforderlich für das Abfangen von Tastatureingaben";
-"settings.permissions.accessibility.explanation" = "Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Cmd+X im Finder abzufangen.";
+"settings.permissions.accessibility.explanation" = "Cut & Place benötigt die Bedienungshilfen-Berechtigung, um Cmd+X im Finder abzufangen.";
 "settings.permissions.status.granted" = "Erteilt";
 "settings.permissions.status.not_granted" = "Nicht erteilt";
 "settings.permissions.open_settings" = "Systemeinstellungen öffnen";
 
 // MARK: - Onboarding - Welcome
-"onboarding.welcome.title" = "Willkommen bei\nCut & Paste";
+"onboarding.welcome.title" = "Willkommen bei\nCut & Place";
 "onboarding.welcome.subtitle" = "Endlich echtes Ausschneiden im Finder - wie bei Windows.";
 
 // MARK: - Onboarding - How It Works
@@ -60,14 +60,14 @@
 
 // MARK: - Onboarding - Permission
 "onboarding.permission.granted.title" = "Berechtigung erteilt";
-"onboarding.permission.granted.description" = "Cut & Paste hat jetzt Zugriff auf die Bedienungshilfen.";
+"onboarding.permission.granted.description" = "Cut & Place hat jetzt Zugriff auf die Bedienungshilfen.";
 "onboarding.permission.required.title" = "Berechtigung erforderlich";
-"onboarding.permission.required.description" = "Cut & Paste benötigt die Bedienungshilfen-Berechtigung, um Tastatureingaben im Finder abzufangen.";
+"onboarding.permission.required.description" = "Cut & Place benötigt die Bedienungshilfen-Berechtigung, um Tastatureingaben im Finder abzufangen.";
 "onboarding.permission.button" = "Systemeinstellungen öffnen";
 
 // MARK: - Onboarding - Success
 "onboarding.success.title" = "Du bist bereit!";
-"onboarding.success.description" = "Cut & Paste läuft jetzt in deiner Menüleiste.\nDrücke Cmd+X im Finder, um loszulegen.";
+"onboarding.success.description" = "Cut & Place läuft jetzt in deiner Menüleiste.\nDrücke Cmd+X im Finder, um loszulegen.";
 "onboarding.success.hint" = "Das Scheren-Symbol findest du oben rechts";
 "onboarding.success.launch_at_login" = "Bei Anmeldung starten";
 "onboarding.success.launch_at_login.recommended" = "Empfohlen für nahtloses Arbeiten";
@@ -83,7 +83,7 @@
 "toast.moved" = "Verschoben";
 
 // MARK: - Rating
-"rating.title" = "Gefällt dir Cut & Paste?";
+"rating.title" = "Gefällt dir Cut & Place?";
 "rating.question" = "Gefällt dir die App?";
 "rating.button.yes" = "Ja!";
 "rating.button.no" = "Nicht wirklich";
@@ -95,3 +95,26 @@
 // MARK: - About
 "about.version" = "Version %@";
 "about.copyright" = "© %@ Kevin Merz. Alle Rechte vorbehalten.";
+"about.feedback" = "Feedback senden";
+"about.feedback.subtitle" = "Hilf uns, Cut & Place zu verbessern";
+"about.rate" = "Im App Store bewerten";
+"about.rate.subtitle" = "Deine Bewertung hilft uns sehr";
+"about.made_with_love" = "Mit Liebe in Deutschland entwickelt";
+
+// MARK: - Permissions (Additional)
+"settings.permissions.how_it_works" = "So funktioniert es";
+"settings.permissions.how_it_works.description" = "Cut & Place überwacht Cmd+X und Cmd+V im Finder, um echtes Ausschneiden zu ermöglichen.";
+
+// MARK: - Window Titles
+"settings.window.title" = "Cut & Place Einstellungen";
+"onboarding.window.title" = "Willkommen";
+"rating.window.title" = "Feedback";
+
+// MARK: - Onboarding Step Titles
+"onboarding.step.welcome" = "Willkommen";
+"onboarding.step.howitworks" = "So funktioniert's";
+"onboarding.step.permission" = "Berechtigung";
+"onboarding.step.success" = "Fertig";
+
+// MARK: - Feedback Email
+"feedback.email.subject" = "Cut & Place Feedback";

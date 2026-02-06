@@ -4,7 +4,7 @@
 */
 
 // MARK: - General
-"app.name" = "Cut & Paste";
+"app.name" = "Cut & Place";
 
 // MARK: - Menu Bar
 "menubar.status.ready" = "Ready";
@@ -28,23 +28,23 @@
 "settings.tab.debug" = "Debug";
 
 // MARK: - General Settings
-"settings.general.enable" = "Enable Cut & Paste";
-"settings.general.enable.help" = "Enables or disables the Cut & Paste function";
+"settings.general.enable" = "Enable Cut & Place";
+"settings.general.enable.help" = "Enables or disables the Cut & Place function";
 "settings.general.launch_at_login" = "Launch at login";
-"settings.general.launch_at_login.help" = "Cut & Paste will start automatically when you log in";
+"settings.general.launch_at_login.help" = "Cut & Place will start automatically when you log in";
 "settings.general.visual_feedback" = "Show visual feedback";
 "settings.general.visual_feedback.help" = "Shows a notification when cutting and pasting";
 
 // MARK: - Permissions Settings
 "settings.permissions.accessibility" = "Accessibility";
 "settings.permissions.accessibility.description" = "Required for intercepting keyboard input";
-"settings.permissions.accessibility.explanation" = "Cut & Paste needs Accessibility permission to intercept Cmd+X in Finder.";
+"settings.permissions.accessibility.explanation" = "Cut & Place needs Accessibility permission to intercept Cmd+X in Finder.";
 "settings.permissions.status.granted" = "Granted";
 "settings.permissions.status.not_granted" = "Not granted";
 "settings.permissions.open_settings" = "Open System Settings";
 
 // MARK: - Onboarding - Welcome
-"onboarding.welcome.title" = "Welcome to\nCut & Paste";
+"onboarding.welcome.title" = "Welcome to\nCut & Place";
 "onboarding.welcome.subtitle" = "Finally, real cut & paste in Finder - just like Windows.";
 
 // MARK: - Onboarding - How It Works
@@ -60,14 +60,14 @@
 
 // MARK: - Onboarding - Permission
 "onboarding.permission.granted.title" = "Permission granted";
-"onboarding.permission.granted.description" = "Cut & Paste now has access to Accessibility.";
+"onboarding.permission.granted.description" = "Cut & Place now has access to Accessibility.";
 "onboarding.permission.required.title" = "Permission required";
-"onboarding.permission.required.description" = "Cut & Paste needs Accessibility permission to intercept keyboard input in Finder.";
+"onboarding.permission.required.description" = "Cut & Place needs Accessibility permission to intercept keyboard input in Finder.";
 "onboarding.permission.button" = "Open System Settings";
 
 // MARK: - Onboarding - Success
 "onboarding.success.title" = "You're ready!";
-"onboarding.success.description" = "Cut & Paste is now running in your menu bar.\nPress Cmd+X in Finder to get started.";
+"onboarding.success.description" = "Cut & Place is now running in your menu bar.\nPress Cmd+X in Finder to get started.";
 "onboarding.success.hint" = "Find the scissors icon in the top right";
 "onboarding.success.launch_at_login" = "Launch at login";
 "onboarding.success.launch_at_login.recommended" = "Recommended for seamless workflow";
@@ -83,7 +83,7 @@
 "toast.moved" = "Moved";
 
 // MARK: - Rating
-"rating.title" = "Enjoying Cut & Paste?";
+"rating.title" = "Enjoying Cut & Place?";
 "rating.question" = "Do you like the app?";
 "rating.button.yes" = "Yes!";
 "rating.button.no" = "Not really";
@@ -95,3 +95,26 @@
 // MARK: - About
 "about.version" = "Version %@";
 "about.copyright" = "© %@ Kevin Merz. All rights reserved.";
+"about.feedback" = "Send Feedback";
+"about.feedback.subtitle" = "Help us improve Cut & Place";
+"about.rate" = "Rate in App Store";
+"about.rate.subtitle" = "Your rating helps us a lot";
+"about.made_with_love" = "Made with love in Germany";
+
+// MARK: - Permissions (Additional)
+"settings.permissions.how_it_works" = "How it works";
+"settings.permissions.how_it_works.description" = "Cut & Place monitors Cmd+X and Cmd+V in Finder to enable real cut functionality.";
+
+// MARK: - Window Titles
+"settings.window.title" = "Cut & Place Settings";
+"onboarding.window.title" = "Welcome";
+"rating.window.title" = "Feedback";
+
+// MARK: - Onboarding Step Titles
+"onboarding.step.welcome" = "Welcome";
+"onboarding.step.howitworks" = "How it works";
+"onboarding.step.permission" = "Permission";
+"onboarding.step.success" = "Done";
+
+// MARK: - Feedback Email
+"feedback.email.subject" = "Cut & Place Feedback";

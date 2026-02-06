@@ -3,7 +3,6 @@ import SwiftUI
 struct RatingPromptView: View {
 
     @ObservedObject var ratingService: RatingService
-    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
         VStack(spacing: 24) {
@@ -13,11 +12,11 @@ struct RatingPromptView: View {
                     .font(.system(size: 48))
                     .foregroundColor(.yellow)
 
-                Text("Gefällt dir Cut & Paste?")
+                Text("rating.title".localized)
                     .font(.title2)
                     .fontWeight(.bold)
 
-                Text("Dein Feedback hilft uns, die App zu verbessern.")
+                Text("rating.question".localized)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -28,7 +27,7 @@ struct RatingPromptView: View {
                 Button(action: handlePositive) {
                     HStack {
                         Image(systemName: "hand.thumbsup.fill")
-                        Text("Ja, die App ist toll!")
+                        Text("rating.button.yes".localized)
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -37,13 +36,13 @@ struct RatingPromptView: View {
                 Button(action: handleNegative) {
                     HStack {
                         Image(systemName: "hand.thumbsdown")
-                        Text("Nein, ich habe Verbesserungsvorschläge")
+                        Text("rating.button.no".localized)
                     }
                     .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(SecondaryButtonStyle())
 
-                Button("Später erinnern") {
+                Button("rating.button.skip".localized) {
                     handleSkip()
                 }
                 .buttonStyle(BorderlessButtonStyle())
@@ -69,17 +68,14 @@ struct RatingPromptView: View {
 
     private func handlePositive() {
         ratingService.handlePositiveResponse()
-        presentationMode.wrappedValue.dismiss()
     }
 
     private func handleNegative() {
         ratingService.handleNegativeResponse()
-        presentationMode.wrappedValue.dismiss()
     }
 
     private func handleSkip() {
         ratingService.handleSkip()
-        presentationMode.wrappedValue.dismiss()
     }
 }
 

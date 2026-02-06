@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (Italian)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place necessita dell'autorizzazione Accessibilità per intercettare l'input da tastiera nel Finder e abilitare la vera funzione taglia (Cmd+X).";

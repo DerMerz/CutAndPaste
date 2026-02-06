@@ -70,7 +70,7 @@ final class SettingsUITests: XCTestCase {
         }
 
         // Check for toggles (English)
-        let enableToggle = settingsWindow.toggles["Enable Cut & Paste"]
+        let enableToggle = settingsWindow.toggles["Enable Cut & Place"]
         let launchToggle = settingsWindow.toggles["Launch at login"]
         let feedbackToggle = settingsWindow.toggles["Show visual feedback"]
 
@@ -85,7 +85,7 @@ final class SettingsUITests: XCTestCase {
         guard settingsWindow.waitForExistence(timeout: 5) else { return }
 
         // Find enable toggle (English)
-        let enableToggle = settingsWindow.toggles["Enable Cut & Paste"]
+        let enableToggle = settingsWindow.toggles["Enable Cut & Place"]
 
         if enableToggle.exists {
             // Get initial state
@@ -136,7 +136,7 @@ final class SettingsUITests: XCTestCase {
             aboutTab.tap()
 
             // Check for app name
-            let appName = settingsWindow.staticTexts["Cut & Paste"]
+            let appName = settingsWindow.staticTexts["Cut & Place"]
             XCTAssertTrue(appName.waitForExistence(timeout: 2))
         }
     }

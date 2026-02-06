@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (Simplified Chinese)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place 需要辅助功能权限来拦截访达中的键盘输入，并启用真正的剪切功能（Cmd+X）。";

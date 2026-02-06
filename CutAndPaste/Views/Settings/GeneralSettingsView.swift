@@ -5,28 +5,119 @@ struct GeneralSettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Toggle("settings.general.enable".localized, isOn: Binding(
-                get: { viewModel.isEnabled },
-                set: { viewModel.updateIsEnabled($0) }
-            ))
-            .help("settings.general.enable.help".localized)
+        ScrollView {
+            VStack(spacing: 16) {
+                // Main Feature Toggle
+                SettingsCard {
+                    SettingsToggleRow(
+                        icon: "scissors",
+                        iconColor: .accentColor,
+                        title: "settings.general.enable".localized,
+                        subtitle: "settings.general.enable.help".localized,
+                        isOn: Binding(
+                            get: { viewModel.isEnabled },
+                            set: { viewModel.updateIsEnabled($0) }
+                        )
+                    )
+                }
 
-            Toggle("settings.general.launch_at_login".localized, isOn: Binding(
-                get: { viewModel.launchAtLogin },
-                set: { viewModel.updateLaunchAtLogin($0) }
-            ))
-            .help("settings.general.launch_at_login.help".localized)
+                // App Behavior
+                SettingsCard {
+                    VStack(spacing: 0) {
+                        SettingsToggleRow(
+                            icon: "arrow.up.right.square",
+                            iconColor: .blue,
+                            title: "settings.general.launch_at_login".localized,
+                            subtitle: "settings.general.launch_at_login.help".localized,
+                            isOn: Binding(
+                                get: { viewModel.launchAtLogin },
+                                set: { viewModel.updateLaunchAtLogin($0) }
+                            )
+                        )
 
-            Toggle("settings.general.visual_feedback".localized, isOn: Binding(
-                get: { viewModel.showVisualFeedback },
-                set: { viewModel.updateShowVisualFeedback($0) }
-            ))
-            .help("settings.general.visual_feedback.help".localized)
+                        Divider()
+                            .padding(.leading, 44)
+
+                        SettingsToggleRow(
+                            icon: "eye",
+                            iconColor: .purple,
+                            title: "settings.general.visual_feedback".localized,
+                            subtitle: "settings.general.visual_feedback.help".localized,
+                            isOn: Binding(
+                                get: { viewModel.showVisualFeedback },
+                                set: { viewModel.updateShowVisualFeedback($0) }
+                            )
+                        )
+                    }
+                }
+            }
+            .padding(20)
+        }
+    }
+}
+
+// MARK: - Settings Card Component
+
+struct SettingsCard<Content: View>: View {
+    let content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        content
+            .padding(12)
+            .background(Color(NSColor.controlBackgroundColor))
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(NSColor.separatorColor).opacity(0.5), lineWidth: 0.5)
+            )
+    }
+}
+
+// MARK: - Settings Toggle Row Component
+
+struct SettingsToggleRow: View {
+    let icon: String
+    let iconColor: Color
+    let title: String
+    let subtitle: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        HStack(spacing: 12) {
+            // Icon
+            ZStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(iconColor.opacity(0.15))
+                    .frame(width: 32, height: 32)
+
+                Image(systemName: icon)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(iconColor)
+            }
+
+            // Text
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 13, weight: .medium))
+
+                Text(subtitle)
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+            }
 
             Spacer()
+
+            // Toggle
+            Toggle("", isOn: $isOn)
+                .toggleStyle(CompactToggleStyle())
+                .labelsHidden()
         }
-        .padding(20)
+        .padding(.vertical, 4)
     }
 }
 

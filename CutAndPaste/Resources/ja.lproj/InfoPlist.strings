@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (Japanese)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place は Finder でキーボード入力を傍受し、本物のカット機能（Cmd+X）を有効にするために、アクセシビリティの許可が必要です。";

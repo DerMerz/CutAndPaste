@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (French)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place a besoin de l'autorisation d'accessibilité pour intercepter les entrées clavier dans le Finder et activer la vraie fonction couper (Cmd+X).";

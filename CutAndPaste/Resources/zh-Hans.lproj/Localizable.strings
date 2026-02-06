@@ -4,7 +4,7 @@
 */
 
 // MARK: - General
-"app.name" = "Cut & Paste";
+"app.name" = "Cut & Place";
 
 // MARK: - Menu Bar
 "menubar.status.ready" = "就绪";
@@ -28,23 +28,23 @@
 "settings.tab.debug" = "调试";
 
 // MARK: - General Settings
-"settings.general.enable" = "启用 Cut & Paste";
-"settings.general.enable.help" = "启用或禁用 Cut & Paste 功能";
+"settings.general.enable" = "启用 Cut & Place";
+"settings.general.enable.help" = "启用或禁用 Cut & Place 功能";
 "settings.general.launch_at_login" = "登录时启动";
-"settings.general.launch_at_login.help" = "登录时自动启动 Cut & Paste";
+"settings.general.launch_at_login.help" = "登录时自动启动 Cut & Place";
 "settings.general.visual_feedback" = "显示视觉反馈";
 "settings.general.visual_feedback.help" = "剪切和粘贴时显示通知";
 
 // MARK: - Permissions Settings
 "settings.permissions.accessibility" = "辅助功能";
 "settings.permissions.accessibility.description" = "需要此权限来拦截键盘输入";
-"settings.permissions.accessibility.explanation" = "Cut & Paste 需要辅助功能权限才能在访达中拦截 Cmd+X。";
+"settings.permissions.accessibility.explanation" = "Cut & Place 需要辅助功能权限才能在访达中拦截 Cmd+X。";
 "settings.permissions.status.granted" = "已授予";
 "settings.permissions.status.not_granted" = "未授予";
 "settings.permissions.open_settings" = "打开系统偏好设置";
 
 // MARK: - Onboarding - Welcome
-"onboarding.welcome.title" = "欢迎使用\nCut & Paste";
+"onboarding.welcome.title" = "欢迎使用\nCut & Place";
 "onboarding.welcome.subtitle" = "终于可以在访达中真正剪切粘贴了 - 就像 Windows 一样。";
 
 // MARK: - Onboarding - How It Works
@@ -60,14 +60,14 @@
 
 // MARK: - Onboarding - Permission
 "onboarding.permission.granted.title" = "权限已授予";
-"onboarding.permission.granted.description" = "Cut & Paste 现在可以访问辅助功能了。";
+"onboarding.permission.granted.description" = "Cut & Place 现在可以访问辅助功能了。";
 "onboarding.permission.required.title" = "需要权限";
-"onboarding.permission.required.description" = "Cut & Paste 需要辅助功能权限才能在访达中拦截键盘输入。";
+"onboarding.permission.required.description" = "Cut & Place 需要辅助功能权限才能在访达中拦截键盘输入。";
 "onboarding.permission.button" = "打开系统偏好设置";
 
 // MARK: - Onboarding - Success
 "onboarding.success.title" = "准备就绪！";
-"onboarding.success.description" = "Cut & Paste 正在菜单栏中运行。\n在访达中按 Cmd+X 开始使用。";
+"onboarding.success.description" = "Cut & Place 正在菜单栏中运行。\n在访达中按 Cmd+X 开始使用。";
 "onboarding.success.hint" = "在右上角找到剪刀图标";
 "onboarding.success.launch_at_login" = "登录时启动";
 "onboarding.success.launch_at_login.recommended" = "推荐，以获得无缝体验";
@@ -83,7 +83,7 @@
 "toast.moved" = "已移动";
 
 // MARK: - Rating
-"rating.title" = "喜欢 Cut & Paste 吗？";
+"rating.title" = "喜欢 Cut & Place 吗？";
 "rating.question" = "您喜欢这个应用吗？";
 "rating.button.yes" = "喜欢！";
 "rating.button.no" = "不太喜欢";
@@ -95,3 +95,26 @@
 // MARK: - About
 "about.version" = "版本 %@";
 "about.copyright" = "© %@ Kevin Merz. 保留所有权利。";
+"about.feedback" = "发送反馈";
+"about.feedback.subtitle" = "帮助我们改进 Cut & Place";
+"about.rate" = "在 App Store 评分";
+"about.rate.subtitle" = "您的评分对我们帮助很大";
+"about.made_with_love" = "在德国用爱制作";
+
+// MARK: - Permissions (Additional)
+"settings.permissions.how_it_works" = "工作原理";
+"settings.permissions.how_it_works.description" = "Cut & Place 监控访达中的 Cmd+X 和 Cmd+V 以启用真正的剪切功能。";
+
+// MARK: - Window Titles
+"settings.window.title" = "Cut & Place 设置";
+"onboarding.window.title" = "欢迎";
+"rating.window.title" = "反馈";
+
+// MARK: - Onboarding Step Titles
+"onboarding.step.welcome" = "欢迎";
+"onboarding.step.howitworks" = "使用方法";
+"onboarding.step.permission" = "权限";
+"onboarding.step.success" = "完成";
+
+// MARK: - Feedback Email
+"feedback.email.subject" = "Cut & Place 反馈";

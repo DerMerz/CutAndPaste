@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (German)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place benötigt Zugriff auf die Bedienungshilfen, um Tastatureingaben im Finder abzufangen und echtes Ausschneiden (Cmd+X) zu ermöglichen.";

@@ -10,13 +10,13 @@ enum OnboardingStep: Int, CaseIterable {
     var title: String {
         switch self {
         case .welcome:
-            return "Willkommen"
+            return "onboarding.step.welcome".localized
         case .howItWorks:
-            return "So funktioniert's"
+            return "onboarding.step.howitworks".localized
         case .permission:
-            return "Berechtigung"
+            return "onboarding.step.permission".localized
         case .success:
-            return "Fertig"
+            return "onboarding.step.success".localized
         }
     }
 
@@ -48,7 +48,7 @@ final class OnboardingManager: ObservableObject {
     private let accessibilityService: AccessibilityService
     private var cancellables = Set<AnyCancellable>()
 
-    private init(
+    init(
         settingsManager: SettingsManager = .shared,
         accessibilityService: AccessibilityService = .shared
     ) {

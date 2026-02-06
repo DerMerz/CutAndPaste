@@ -8,108 +8,174 @@ struct DebugSettingsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(spacing: 12) {
                 // Cut State Section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Cut State")
-                        .font(.headline)
+                DebugCard(
+                    icon: "scissors",
+                    iconColor: .green,
+                    title: "Cut State"
+                ) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(viewModel.cutStateDebugInfo)
+                            .font(.system(size: 10, design: .monospaced))
+                            .foregroundColor(.secondary)
 
-                    Text(viewModel.cutStateDebugInfo)
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(.secondary)
-
-                    HStack {
-                        Button("Activate") {
-                            CutStateManager.shared.forceActivate()
-                        }
-                        Button("Deactivate") {
-                            CutStateManager.shared.forceDeactivate()
+                        HStack(spacing: 8) {
+                            DebugButton(title: "Activate", color: .green) {
+                                CutStateManager.shared.forceActivate()
+                            }
+                            DebugButton(title: "Deactivate", color: .secondary) {
+                                CutStateManager.shared.forceDeactivate()
+                            }
                         }
                     }
                 }
-                .padding()
-                .background(Color(NSColor.controlBackgroundColor))
-                .cornerRadius(8)
 
                 // Rating State Section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Rating State")
-                        .font(.headline)
+                DebugCard(
+                    icon: "star.fill",
+                    iconColor: .yellow,
+                    title: "Rating State"
+                ) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(viewModel.ratingDebugInfo)
+                            .font(.system(size: 10, design: .monospaced))
+                            .foregroundColor(.secondary)
 
-                    Text(viewModel.ratingDebugInfo)
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(.secondary)
+                        Divider()
 
-                    Divider()
-
-                    HStack {
-                        Button("Trigger Prompt") {
-                            viewModel.triggerRatingPrompt()
+                        HStack(spacing: 8) {
+                            DebugButton(title: "Trigger", color: .blue) {
+                                viewModel.triggerRatingPrompt()
+                            }
+                            DebugButton(title: "Reset", color: .red) {
+                                viewModel.resetRatingState()
+                            }
                         }
-
-                        Button("Reset State") {
-                            viewModel.resetRatingState()
-                        }
-                        .foregroundColor(.red)
                     }
                 }
-                .padding()
-                .background(Color(NSColor.controlBackgroundColor))
-                .cornerRadius(8)
 
                 // App Info Section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("App Info")
-                        .font(.headline)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        InfoRow(label: "Version", value: Constants.App.version)
-                        InfoRow(label: "Build", value: Constants.App.build)
-                        InfoRow(label: "Bundle ID", value: Constants.App.bundleIdentifier)
-                        InfoRow(label: "macOS", value: Constants.Device.macOSVersion)
-                        InfoRow(label: "Device", value: Constants.Device.deviceModel)
+                DebugCard(
+                    icon: "info.circle.fill",
+                    iconColor: .blue,
+                    title: "App Info"
+                ) {
+                    VStack(spacing: 4) {
+                        DebugInfoRow(label: "Version", value: Constants.App.version)
+                        DebugInfoRow(label: "Build", value: Constants.App.build)
+                        DebugInfoRow(label: "Bundle ID", value: Constants.App.bundleIdentifier)
+                        DebugInfoRow(label: "macOS", value: Constants.Device.macOSVersion)
+                        DebugInfoRow(label: "Device", value: Constants.Device.deviceModel)
                     }
                 }
-                .padding()
-                .background(Color(NSColor.controlBackgroundColor))
-                .cornerRadius(8)
 
                 // Onboarding Section
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Onboarding")
-                        .font(.headline)
+                DebugCard(
+                    icon: "hand.wave.fill",
+                    iconColor: .purple,
+                    title: "Onboarding"
+                ) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Completed:")
+                                .font(.system(size: 11))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Text(SettingsManager.shared.hasCompletedOnboarding ? "Yes" : "No")
+                                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                                .foregroundColor(SettingsManager.shared.hasCompletedOnboarding ? .green : .orange)
+                        }
 
-                    Text("Has completed: \(SettingsManager.shared.hasCompletedOnboarding ? "Yes" : "No")")
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(.secondary)
-
-                    Button("Reset Onboarding") {
-                        SettingsManager.shared.hasCompletedOnboarding = false
-                        OnboardingManager.shared.reset()
+                        DebugButton(title: "Reset Onboarding", color: .red) {
+                            SettingsManager.shared.hasCompletedOnboarding = false
+                            OnboardingManager.shared.reset()
+                        }
                     }
-                    .foregroundColor(.red)
                 }
-                .padding()
-                .background(Color(NSColor.controlBackgroundColor))
-                .cornerRadius(8)
             }
-            .padding()
+            .padding(16)
         }
     }
 }
 
-struct InfoRow: View {
+// MARK: - Debug Card Component
+
+struct DebugCard<Content: View>: View {
+    let icon: String
+    let iconColor: Color
+    let title: String
+    let content: Content
+
+    init(icon: String, iconColor: Color, title: String, @ViewBuilder content: () -> Content) {
+        self.icon = icon
+        self.iconColor = iconColor
+        self.title = title
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            // Header
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(iconColor)
+
+                Text(title)
+                    .font(.system(size: 12, weight: .semibold))
+
+                Spacer()
+            }
+
+            content
+        }
+        .padding(12)
+        .background(Color(NSColor.controlBackgroundColor))
+        .cornerRadius(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color(NSColor.separatorColor).opacity(0.5), lineWidth: 0.5)
+        )
+    }
+}
+
+// MARK: - Debug Button
+
+struct DebugButton: View {
+    let title: String
+    let color: Color
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 10, weight: .medium))
+                .foregroundColor(color)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 4)
+                .background(color.opacity(0.1))
+                .cornerRadius(4)
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+// MARK: - Debug Info Row
+
+struct DebugInfoRow: View {
     let label: String
     let value: String
 
     var body: some View {
         HStack {
             Text(label)
-                .font(.caption)
+                .font(.system(size: 11))
                 .foregroundColor(.secondary)
             Spacer()
             Text(value)
-                .font(.system(.caption, design: .monospaced))
+                .font(.system(size: 11, design: .monospaced))
+                .foregroundColor(.primary)
         }
     }
 }

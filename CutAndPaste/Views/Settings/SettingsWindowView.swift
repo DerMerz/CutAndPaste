@@ -41,37 +41,86 @@ struct SettingsWindowView: View {
             #endif
             }
         }
+
+        static var allVisibleCases: [SettingsTab] {
+            #if DEBUG
+            return [.general, .permissions, .about, .debug]
+            #else
+            return [.general, .permissions, .about]
+            #endif
+        }
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            GeneralSettingsView()
-                .tabItem {
-                    Label(SettingsTab.general.title, systemImage: SettingsTab.general.icon)
+        VStack(spacing: 0) {
+            // Custom Tab Bar
+            HStack(spacing: 2) {
+                ForEach(SettingsTab.allVisibleCases, id: \.self) { tab in
+                    SettingsTabButton(
+                        tab: tab,
+                        isSelected: selectedTab == tab
+                    ) {
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            selectedTab = tab
+                        }
+                    }
                 }
-                .tag(SettingsTab.general)
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
 
-            PermissionsSettingsView()
-                .tabItem {
-                    Label(SettingsTab.permissions.title, systemImage: SettingsTab.permissions.icon)
-                }
-                .tag(SettingsTab.permissions)
+            Divider()
 
-            AboutView()
-                .tabItem {
-                    Label(SettingsTab.about.title, systemImage: SettingsTab.about.icon)
+            // Content
+            Group {
+                switch selectedTab {
+                case .general:
+                    GeneralSettingsView()
+                case .permissions:
+                    PermissionsSettingsView()
+                case .about:
+                    AboutView()
+                #if DEBUG
+                case .debug:
+                    DebugSettingsView()
+                #endif
                 }
-                .tag(SettingsTab.about)
-
-            #if DEBUG
-            DebugSettingsView()
-                .tabItem {
-                    Label(SettingsTab.debug.title, systemImage: SettingsTab.debug.icon)
-                }
-                .tag(SettingsTab.debug)
-            #endif
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(width: 450, height: 300)
+        .frame(width: 460, height: 400)
+        .background(Color(NSColor.windowBackgroundColor))
+    }
+}
+
+// MARK: - Tab Button
+
+struct SettingsTabButton: View {
+    let tab: SettingsWindowView.SettingsTab
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: tab.icon)
+                    .font(.system(size: 18, weight: isSelected ? .semibold : .regular))
+                    .foregroundColor(isSelected ? .accentColor : .secondary)
+
+                Text(tab.title)
+                    .font(.system(size: 10, weight: isSelected ? .medium : .regular))
+                    .foregroundColor(isSelected ? .primary : .secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(isSelected ? Color.accentColor.opacity(0.1) : Color.clear)
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 }
 

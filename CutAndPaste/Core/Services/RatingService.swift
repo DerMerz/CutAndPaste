@@ -47,6 +47,10 @@ final class RatingService: ObservableObject {
         shouldShowPrompt = false
     }
 
+    func showPromptFromUser() {
+        shouldShowPrompt = true
+    }
+
     #if DEBUG
     func triggerPromptForDebug() {
         shouldShowPrompt = true

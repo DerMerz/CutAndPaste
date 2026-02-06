@@ -20,137 +20,163 @@ final class OnboardingUITests: XCTestCase {
     // MARK: - Welcome Screen Tests
 
     func testWelcomeScreen_displaysCorrectElements() throws {
-        // Given the app launches with onboarding
+        let welcomeTitle = app.staticTexts["Welcome to\nCut & Place"]
+        XCTAssertTrue(welcomeTitle.waitForExistence(timeout: 5), "Welcome title should be visible")
 
-        // Then welcome screen should show
-        let welcomeTitle = app.staticTexts["Welcome to\nCut & Paste"]
         let nextButton = app.buttons["Next"]
-
-        // Note: These tests assume the app shows onboarding on first launch
-        // In a real scenario, we'd need to reset UserDefaults before testing
-        if welcomeTitle.waitForExistence(timeout: 5) {
-            XCTAssertTrue(welcomeTitle.exists)
-            XCTAssertTrue(nextButton.exists)
-        }
+        XCTAssertTrue(nextButton.exists, "Next button should be visible")
     }
 
     func testWelcomeScreen_nextNavigatesToHowItWorks() throws {
-        // Given welcome screen is shown
         let nextButton = app.buttons["Next"]
+        XCTAssertTrue(nextButton.waitForExistence(timeout: 5), "Next button should be visible")
 
-        if nextButton.waitForExistence(timeout: 5) {
-            // When tapping Next
-            nextButton.tap()
+        nextButton.tap()
 
-            // Then how it works screen should show
-            let howItWorksTitle = app.staticTexts["How it works"]
-            XCTAssertTrue(howItWorksTitle.waitForExistence(timeout: 2))
-        }
+        let howItWorksTitle = app.staticTexts["How it works"]
+        XCTAssertTrue(howItWorksTitle.waitForExistence(timeout: 2), "How it works title should appear")
+    }
+
+    func testWelcomeScreen_backButtonNotVisible() throws {
+        let nextButton = app.buttons["Next"]
+        XCTAssertTrue(nextButton.waitForExistence(timeout: 5), "Next button should be visible")
+
+        let backButton = app.buttons["Back"]
+        XCTAssertFalse(backButton.exists, "Back button should not be visible on welcome screen")
     }
 
     // MARK: - How It Works Screen Tests
 
     func testHowItWorksScreen_displaysAllSteps() throws {
-        // Navigate to How It Works
         navigateToStep(2)
 
-        // Then all steps should be visible
         let step1 = app.staticTexts["1. Select files"]
-        let step2 = app.staticTexts["2. Press Cmd+X"]
-        let step3 = app.staticTexts["3. Navigate to destination"]
-        let step4 = app.staticTexts["4. Press Cmd+V"]
+        XCTAssertTrue(step1.waitForExistence(timeout: 2), "Step 1 should be visible")
 
-        if step1.waitForExistence(timeout: 2) {
-            XCTAssertTrue(step1.exists)
-            XCTAssertTrue(step2.exists)
-            XCTAssertTrue(step3.exists)
-            XCTAssertTrue(step4.exists)
-        }
+        let step2 = app.staticTexts["2. Press Cmd+X"]
+        XCTAssertTrue(step2.exists, "Step 2 should be visible")
+
+        let step3 = app.staticTexts["3. Navigate to destination"]
+        XCTAssertTrue(step3.exists, "Step 3 should be visible")
+
+        let step4 = app.staticTexts["4. Press Cmd+V"]
+        XCTAssertTrue(step4.exists, "Step 4 should be visible")
     }
 
     func testHowItWorksScreen_backNavigatesToWelcome() throws {
-        // Navigate to How It Works
         navigateToStep(2)
 
-        // When tapping Back
         let backButton = app.buttons["Back"]
-        if backButton.waitForExistence(timeout: 2) {
-            backButton.tap()
+        XCTAssertTrue(backButton.waitForExistence(timeout: 2), "Back button should be visible")
 
-            // Then welcome screen should show
-            let welcomeTitle = app.staticTexts["Welcome to\nCut & Paste"]
-            XCTAssertTrue(welcomeTitle.waitForExistence(timeout: 2))
-        }
+        backButton.tap()
+
+        let welcomeTitle = app.staticTexts["Welcome to\nCut & Place"]
+        XCTAssertTrue(welcomeTitle.waitForExistence(timeout: 2), "Welcome title should reappear")
+    }
+
+    func testHowItWorksScreen_backButtonIsVisible() throws {
+        navigateToStep(2)
+
+        let backButton = app.buttons["Back"]
+        XCTAssertTrue(backButton.waitForExistence(timeout: 2), "Back button should be visible on How it works screen")
     }
 
     // MARK: - Permission Screen Tests
 
     func testPermissionScreen_displaysPermissionRequest() throws {
-        // Navigate to Permission screen
         navigateToStep(3)
 
-        // Then permission screen should show
         let permissionTitle = app.staticTexts["Permission required"]
+        XCTAssertTrue(permissionTitle.waitForExistence(timeout: 2), "Permission required title should be visible")
 
-        if permissionTitle.waitForExistence(timeout: 2) {
-            XCTAssertTrue(permissionTitle.exists)
+        let openPrefsButton = app.buttons["Open System Settings"]
+        XCTAssertTrue(openPrefsButton.exists, "Open System Settings button should be visible")
+    }
 
-            // Button to open system preferences should exist
-            let openPrefsButton = app.buttons["Open System Settings"]
-            XCTAssertTrue(openPrefsButton.exists)
-        }
+    func testPermissionScreen_backNavigatesToHowItWorks() throws {
+        navigateToStep(3)
+
+        let backButton = app.buttons["Back"]
+        XCTAssertTrue(backButton.waitForExistence(timeout: 2), "Back button should be visible")
+
+        backButton.tap()
+
+        let howItWorksTitle = app.staticTexts["How it works"]
+        XCTAssertTrue(howItWorksTitle.waitForExistence(timeout: 2), "How it works should reappear")
     }
 
     // MARK: - Success Screen Tests
 
     func testSuccessScreen_displaysSuccessMessage() throws {
-        // Note: This test requires permission to be granted
-        // In UI tests, we might need to mock this
-
-        // Navigate to Success screen (assuming permission is granted)
         navigateToStep(4)
 
         let successTitle = app.staticTexts["You're ready!"]
+        // Success screen may not show if permission isn't granted (auto-advance blocked)
+        // In that case the test just verifies we can navigate to step 4
+        if successTitle.waitForExistence(timeout: 3) {
+            XCTAssertTrue(successTitle.exists, "You're ready! title should be visible")
 
-        if successTitle.waitForExistence(timeout: 2) {
-            XCTAssertTrue(successTitle.exists)
-
-            // "Get started" button should exist
             let startButton = app.buttons["Get started"]
-            XCTAssertTrue(startButton.exists)
+            XCTAssertTrue(startButton.exists, "Get started button should be visible")
         }
     }
 
     func testSuccessScreen_hasLaunchAtLoginToggle() throws {
-        // Navigate to Success screen
         navigateToStep(4)
 
         let launchAtLoginLabel = app.staticTexts["Launch at login"]
-
-        if launchAtLoginLabel.waitForExistence(timeout: 2) {
+        if launchAtLoginLabel.waitForExistence(timeout: 3) {
             XCTAssertTrue(launchAtLoginLabel.exists, "Launch at login option should be visible")
         }
     }
 
+    func testSuccessScreen_hasRecommendedLabel() throws {
+        navigateToStep(4)
+
+        let recommendedLabel = app.staticTexts["Recommended for seamless workflow"]
+        if recommendedLabel.waitForExistence(timeout: 3) {
+            XCTAssertTrue(recommendedLabel.exists, "Recommended label should be visible")
+        }
+    }
+
+    // MARK: - Full Navigation Flow Tests
+
+    func testFullNavigation_forwardAndBack() throws {
+        // Welcome -> Next
+        let nextButton = app.buttons["Next"]
+        XCTAssertTrue(nextButton.waitForExistence(timeout: 5), "Next button should be visible")
+        nextButton.tap()
+
+        // How It Works -> Next
+        let howItWorksTitle = app.staticTexts["How it works"]
+        XCTAssertTrue(howItWorksTitle.waitForExistence(timeout: 2), "How it works should appear")
+        if nextButton.exists && nextButton.isHittable {
+            nextButton.tap()
+        }
+
+        // Permission -> Back
+        let permissionTitle = app.staticTexts["Permission required"]
+        if permissionTitle.waitForExistence(timeout: 2) {
+            let backButton = app.buttons["Back"]
+            XCTAssertTrue(backButton.exists, "Back button should be visible")
+            backButton.tap()
+
+            // Back at How It Works -> Back
+            XCTAssertTrue(howItWorksTitle.waitForExistence(timeout: 2), "Should be back at How it works")
+            let backButton2 = app.buttons["Back"]
+            backButton2.tap()
+
+            // Back at Welcome
+            let welcomeTitle = app.staticTexts["Welcome to\nCut & Place"]
+            XCTAssertTrue(welcomeTitle.waitForExistence(timeout: 2), "Should be back at Welcome")
+        }
+    }
+
     // MARK: - Localization Tests
-    // Note: Localization tests verify that the app contains localized strings.
-    // Due to macOS sandbox limitations, changing app language via launch arguments
-    // may not work reliably in UI tests. These tests verify the localization files exist.
 
-    func testLocalizationFiles_AreIncludedInBundle() throws {
-        // This test verifies that localization works by checking if the app can launch
-        // and display the onboarding. The actual language switching is tested manually
-        // or via unit tests that check the Bundle contains the localized strings.
-
-        // The English test already ran successfully, which confirms:
-        // 1. The app launches correctly
-        // 2. Localization infrastructure is working (NSLocalizedString)
-        // 3. The English strings are displayed
-
-        // For other languages, we verify the files exist in the bundle
-        let bundle = Bundle(path: "/Users/kevinmerz/Library/Developer/Xcode/DerivedData/CutAndPaste-gedvxfszuabzegfqfabzkcslvgln/Build/Products/Debug/CutAndPaste.app")
-
-        // This test passes if the app launched successfully (which it did in setUp)
+    func testLocalizationFiles_appIsRunning() throws {
+        // Verify the app launched successfully (which it did in setUp)
         XCTAssertTrue(app.state == .runningBackground || app.state == .runningForeground,
                       "App should be running")
     }
@@ -160,7 +186,10 @@ final class OnboardingUITests: XCTestCase {
     private func navigateToStep(_ step: Int) {
         let nextButton = app.buttons["Next"]
 
-        guard nextButton.waitForExistence(timeout: 5) else { return }
+        guard nextButton.waitForExistence(timeout: 5) else {
+            XCTFail("Next button should exist to navigate")
+            return
+        }
 
         for _ in 1..<step {
             if nextButton.exists && nextButton.isHittable {

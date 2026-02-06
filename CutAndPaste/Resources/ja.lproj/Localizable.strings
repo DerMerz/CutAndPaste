@@ -4,7 +4,7 @@
 */
 
 // MARK: - General
-"app.name" = "Cut & Paste";
+"app.name" = "Cut & Place";
 
 // MARK: - Menu Bar
 "menubar.status.ready" = "準備完了";
@@ -28,23 +28,23 @@
 "settings.tab.debug" = "デバッグ";
 
 // MARK: - General Settings
-"settings.general.enable" = "Cut & Paste を有効にする";
-"settings.general.enable.help" = "Cut & Paste 機能を有効または無効にします";
+"settings.general.enable" = "Cut & Place を有効にする";
+"settings.general.enable.help" = "Cut & Place 機能を有効または無効にします";
 "settings.general.launch_at_login" = "ログイン時に起動";
-"settings.general.launch_at_login.help" = "ログイン時に Cut & Paste を自動的に起動します";
+"settings.general.launch_at_login.help" = "ログイン時に Cut & Place を自動的に起動します";
 "settings.general.visual_feedback" = "視覚的フィードバックを表示";
 "settings.general.visual_feedback.help" = "カット＆ペースト時に通知を表示します";
 
 // MARK: - Permissions Settings
 "settings.permissions.accessibility" = "アクセシビリティ";
 "settings.permissions.accessibility.description" = "キーボード入力を傍受するために必要です";
-"settings.permissions.accessibility.explanation" = "Cut & Paste は Finder で Cmd+X を傍受するためにアクセシビリティの許可が必要です。";
+"settings.permissions.accessibility.explanation" = "Cut & Place は Finder で Cmd+X を傍受するためにアクセシビリティの許可が必要です。";
 "settings.permissions.status.granted" = "許可済み";
 "settings.permissions.status.not_granted" = "未許可";
 "settings.permissions.open_settings" = "システム環境設定を開く";
 
 // MARK: - Onboarding - Welcome
-"onboarding.welcome.title" = "Cut & Paste へ\nようこそ";
+"onboarding.welcome.title" = "Cut & Place へ\nようこそ";
 "onboarding.welcome.subtitle" = "ついに Finder で本物のカット＆ペースト - Windows のように。";
 
 // MARK: - Onboarding - How It Works
@@ -60,14 +60,14 @@
 
 // MARK: - Onboarding - Permission
 "onboarding.permission.granted.title" = "許可が付与されました";
-"onboarding.permission.granted.description" = "Cut & Paste がアクセシビリティへのアクセス権を取得しました。";
+"onboarding.permission.granted.description" = "Cut & Place がアクセシビリティへのアクセス権を取得しました。";
 "onboarding.permission.required.title" = "許可が必要です";
-"onboarding.permission.required.description" = "Cut & Paste は Finder でキーボード入力を傍受するためにアクセシビリティの許可が必要です。";
+"onboarding.permission.required.description" = "Cut & Place は Finder でキーボード入力を傍受するためにアクセシビリティの許可が必要です。";
 "onboarding.permission.button" = "システム環境設定を開く";
 
 // MARK: - Onboarding - Success
 "onboarding.success.title" = "準備完了！";
-"onboarding.success.description" = "Cut & Paste がメニューバーで実行中です。\nFinder で Cmd+X を押して始めましょう。";
+"onboarding.success.description" = "Cut & Place がメニューバーで実行中です。\nFinder で Cmd+X を押して始めましょう。";
 "onboarding.success.hint" = "右上にハサミのアイコンがあります";
 "onboarding.success.launch_at_login" = "ログイン時に起動";
 "onboarding.success.launch_at_login.recommended" = "シームレスな作業に推奨";
@@ -83,7 +83,7 @@
 "toast.moved" = "移動しました";
 
 // MARK: - Rating
-"rating.title" = "Cut & Paste を気に入っていますか？";
+"rating.title" = "Cut & Place を気に入っていますか？";
 "rating.question" = "このアプリは気に入りましたか？";
 "rating.button.yes" = "はい！";
 "rating.button.no" = "あまり";
@@ -95,3 +95,26 @@
 // MARK: - About
 "about.version" = "バージョン %@";
 "about.copyright" = "© %@ Kevin Merz. All rights reserved.";
+"about.feedback" = "フィードバックを送る";
+"about.feedback.subtitle" = "Cut & Place の改善にご協力ください";
+"about.rate" = "App Store で評価";
+"about.rate.subtitle" = "評価していただけると助かります";
+"about.made_with_love" = "ドイツで愛を込めて作成";
+
+// MARK: - Permissions (Additional)
+"settings.permissions.how_it_works" = "仕組み";
+"settings.permissions.how_it_works.description" = "Cut & Place は Finder で Cmd+X と Cmd+V を監視し、本物のカット機能を有効にします。";
+
+// MARK: - Window Titles
+"settings.window.title" = "Cut & Place 設定";
+"onboarding.window.title" = "ようこそ";
+"rating.window.title" = "フィードバック";
+
+// MARK: - Onboarding Step Titles
+"onboarding.step.welcome" = "ようこそ";
+"onboarding.step.howitworks" = "使い方";
+"onboarding.step.permission" = "許可";
+"onboarding.step.success" = "完了";
+
+// MARK: - Feedback Email
+"feedback.email.subject" = "Cut & Place フィードバック";

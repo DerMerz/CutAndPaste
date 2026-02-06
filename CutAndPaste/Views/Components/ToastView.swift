@@ -37,6 +37,7 @@ final class ToastWindowController {
     static let shared = ToastWindowController()
 
     private var window: NSWindow?
+    private var dismissWorkItem: DispatchWorkItem?
 
     private init() {}
 
@@ -92,10 +93,13 @@ final class ToastWindowController {
             window.animator().alphaValue = 1
         }
 
-        // Schedule dismiss
-        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-            self.dismiss()
+        // Schedule dismiss (cancel any previous pending dismiss)
+        dismissWorkItem?.cancel()
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.dismiss()
         }
+        dismissWorkItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: workItem)
     }
 
     private func dismiss() {

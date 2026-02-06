@@ -79,20 +79,14 @@ final class SettingsManager: ObservableObject {
     }
 
     private func updateLaunchAtLogin(_ enabled: Bool) {
-        if #available(macOS 13.0, *) {
-            do {
-                if enabled {
-                    try SMAppService.mainApp.register()
-                } else {
-                    try SMAppService.mainApp.unregister()
-                }
-            } catch {
-                // Handle error silently - user can retry
+        do {
+            if enabled {
+                try SMAppService.mainApp.register()
+            } else {
+                try SMAppService.mainApp.unregister()
             }
-        } else {
-            // For macOS 11-12, use legacy approach
-            let launcherBundleId = "\(Constants.App.bundleIdentifier).LaunchHelper"
-            SMLoginItemSetEnabled(launcherBundleId as CFString, enabled)
+        } catch {
+            // Handle error silently - user can retry
         }
     }
 }

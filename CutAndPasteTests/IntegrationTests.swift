@@ -9,7 +9,7 @@ final class IntegrationTests: XCTestCase {
         let settings = AppSettings.default
 
         XCTAssertTrue(settings.isEnabled)
-        XCTAssertFalse(settings.launchAtLogin)
+        XCTAssertTrue(settings.launchAtLogin)
         XCTAssertTrue(settings.showVisualFeedback)
         XCTAssertFalse(settings.hasCompletedOnboarding)
     }
@@ -64,10 +64,11 @@ final class IntegrationTests: XCTestCase {
     }
 
     func testOnboardingStep_titles() {
-        XCTAssertEqual(OnboardingStep.welcome.title, "Willkommen")
-        XCTAssertEqual(OnboardingStep.howItWorks.title, "So funktioniert's")
-        XCTAssertEqual(OnboardingStep.permission.title, "Berechtigung")
-        XCTAssertEqual(OnboardingStep.success.title, "Fertig")
+        // Titles are now localized, so just verify they're non-empty strings
+        XCTAssertFalse(OnboardingStep.welcome.title.isEmpty)
+        XCTAssertFalse(OnboardingStep.howItWorks.title.isEmpty)
+        XCTAssertFalse(OnboardingStep.permission.title.isEmpty)
+        XCTAssertFalse(OnboardingStep.success.title.isEmpty)
     }
 
     func testOnboardingStep_navigation() {
@@ -89,8 +90,8 @@ final class IntegrationTests: XCTestCase {
     // MARK: - Constants Tests
 
     func testConstants_appInfo() {
-        XCTAssertEqual(Constants.App.name, "Cut & Paste")
-        XCTAssertEqual(Constants.App.bundleIdentifier, "com.kevinmerz.cutandpaste")
+        XCTAssertEqual(Constants.App.name, "Cut & Place")
+        XCTAssertEqual(Constants.App.bundleIdentifier, "de.merzkevin.cutandmove")
         XCTAssertEqual(Constants.App.supportEmail, "MerzKevin@me.com")
     }
 

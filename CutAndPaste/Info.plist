@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Cut &amp; Paste</string>
+	<string>Cut &amp; Place</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
@@ -31,8 +31,10 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright 2024 Kevin Merz. All rights reserved.</string>
+	<string>Copyright 2026 Kevin Merz. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSAccessibilityUsageDescription</key>
+	<string>Cut &amp; Place needs Accessibility permission to intercept keyboard input in Finder and enable real cut functionality (Cmd+X).</string>
 </dict>
 </plist>

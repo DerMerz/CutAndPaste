@@ -8,6 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var popover: NSPopover?
     private var settingsWindow: NSWindow?
     private var onboardingWindow: NSWindow?
+    private var ratingWindow: NSWindow?
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -54,7 +55,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: Constants.MenuBar.iconDefault, accessibilityDescription: "Cut & Paste")
+            button.image = NSImage(systemSymbolName: Constants.MenuBar.iconDefault, accessibilityDescription: "Cut & Place")
             button.action = #selector(togglePopover)
             button.target = self
         }
@@ -78,11 +79,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             popover.performClose(nil)
         } else {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-
-            // Check if we should show rating prompt
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.ratingService.checkAndShowPromptIfNeeded()
-            }
         }
     }
 
@@ -96,7 +92,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 backing: .buffered,
                 defer: false
             )
-            settingsWindow?.title = "Cut & Paste Einstellungen"
+            settingsWindow?.title = "settings.window.title".localized
             settingsWindow?.center()
             settingsWindow?.contentView = NSHostingView(rootView: SettingsWindowView())
             settingsWindow?.isReleasedWhenClosed = false
@@ -106,6 +102,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
 
         popover?.performClose(nil)
+
+        // Check if we should show rating prompt when settings are opened
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.ratingService.checkAndShowPromptIfNeeded()
+        }
     }
 
     // MARK: - Onboarding
@@ -119,7 +120,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered,
             defer: false
         )
-        onboardingWindow?.title = "Willkommen"
+        onboardingWindow?.title = "onboarding.window.title".localized
         onboardingWindow?.center()
         onboardingWindow?.contentView = NSHostingView(rootView: onboardingView)
         onboardingWindow?.isReleasedWhenClosed = false
@@ -192,12 +193,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
             .store(in: &cancellables)
 
-        // Show rating prompt when requested
+        // Show/close rating prompt when requested
         ratingService.$shouldShowPrompt
-            .filter { $0 }
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.showRatingPrompt()
+            .sink { [weak self] show in
+                if show {
+                    self?.showRatingPrompt()
+                } else {
+                    self?.ratingWindow?.close()
+                    self?.ratingWindow = nil
+                }
             }
             .store(in: &cancellables)
     }
@@ -206,7 +211,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let iconName = isCutActive ? Constants.MenuBar.iconCutActive : Constants.MenuBar.iconDefault
 
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: iconName, accessibilityDescription: "Cut & Paste")
+            button.image = NSImage(systemSymbolName: iconName, accessibilityDescription: "Cut & Place")
 
             if isCutActive {
                 button.contentTintColor = .systemGreen
@@ -221,18 +226,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupToastCallbacks() {
         eventTapService.onCutPerformed = { [weak self] in
             guard self?.settingsManager.showVisualFeedback == true else { return }
-            ToastWindowController.shared.show(message: "Ausgeschnitten", icon: "scissors")
+            ToastWindowController.shared.show(message: "toast.cut".localized, icon: "scissors")
         }
 
         eventTapService.onPastePerformed = { [weak self] in
             guard self?.settingsManager.showVisualFeedback == true else { return }
-            ToastWindowController.shared.show(message: "Verschoben", icon: "checkmark.circle.fill")
+            ToastWindowController.shared.show(message: "toast.moved".localized, icon: "checkmark.circle.fill")
         }
     }
 
     // MARK: - Rating
 
     private func showRatingPrompt() {
+        // Don't open a second rating window
+        if ratingWindow != nil { return }
+
         let ratingView = RatingPromptView(ratingService: ratingService)
 
         let window = NSWindow(
@@ -241,11 +249,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered,
             defer: false
         )
-        window.title = "Feedback"
+        window.title = "rating.window.title".localized
         window.center()
         window.contentView = NSHostingView(rootView: ratingView)
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
+
+        ratingWindow = window
 
         popover?.performClose(nil)
     }

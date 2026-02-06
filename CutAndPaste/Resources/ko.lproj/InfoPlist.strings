@@ -1,0 +1,6 @@
+/*
+  InfoPlist.strings (Korean)
+  CutAndPaste
+*/
+
+"NSAccessibilityUsageDescription" = "Cut & Place는 Finder에서 키보드 입력을 가로채고 진정한 잘라내기 기능(Cmd+X)을 활성화하기 위해 손쉬운 사용 권한이 필요합니다.";

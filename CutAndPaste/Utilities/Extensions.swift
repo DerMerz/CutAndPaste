@@ -15,9 +15,8 @@ extension NSApplication {
     }
 
     static func composeFeedbackEmail() {
-        let subject = "Cut & Paste Feedback"
+        let subject = "feedback.email.subject".localized
         let body = """
-
         ---
         \(Constants.Device.systemInfo)
         """
@@ -179,20 +178,45 @@ struct ColoredSwitchToggleStyle: ToggleStyle {
 
             Spacer()
 
-            RoundedRectangle(cornerRadius: 16)
-                .fill(configuration.isOn ? onColor : offColor)
-                .frame(width: 50, height: 30)
-                .overlay(
-                    Circle()
-                        .fill(thumbColor)
-                        .shadow(radius: 1)
-                        .padding(2)
-                        .offset(x: configuration.isOn ? 10 : -10)
-                )
-                .animation(.easeInOut(duration: 0.15), value: configuration.isOn)
-                .onTapGesture {
-                    configuration.isOn.toggle()
-                }
+            ZStack(alignment: configuration.isOn ? .trailing : .leading) {
+                Capsule()
+                    .fill(configuration.isOn ? onColor : offColor)
+                    .frame(width: 44, height: 26)
+
+                Circle()
+                    .fill(thumbColor)
+                    .shadow(color: .black.opacity(0.15), radius: 2, x: 0, y: 1)
+                    .frame(width: 22, height: 22)
+                    .padding(2)
+            }
+            .animation(.spring(response: 0.2, dampingFraction: 0.75), value: configuration.isOn)
+            .onTapGesture {
+                configuration.isOn.toggle()
+            }
+        }
+    }
+}
+
+// MARK: - Compact Toggle Style (for Settings rows)
+
+struct CompactToggleStyle: ToggleStyle {
+    var onColor: Color = .green
+
+    func makeBody(configuration: Configuration) -> some View {
+        ZStack(alignment: configuration.isOn ? .trailing : .leading) {
+            Capsule()
+                .fill(configuration.isOn ? onColor : Color(NSColor.separatorColor))
+                .frame(width: 38, height: 22)
+
+            Circle()
+                .fill(.white)
+                .shadow(color: .black.opacity(0.15), radius: 1.5, x: 0, y: 1)
+                .frame(width: 18, height: 18)
+                .padding(2)
+        }
+        .animation(.spring(response: 0.2, dampingFraction: 0.75), value: configuration.isOn)
+        .onTapGesture {
+            configuration.isOn.toggle()
         }
     }
 }
