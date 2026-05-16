@@ -1,0 +1,10 @@
+{
+  "_app": "CutAndPaste",
+  "_locale": "ko",
+  "_source": "Translated from en-US screenshot headlines on 2026-05-16",
+  "screenshot_1": { "headline": "드디어, 진짜 ⌘X.", "subhead": "파일 잘라내기 & 붙여넣기, 원래 이래야 했습니다." },
+  "screenshot_2": { "headline": "잘라내기. 이동. 붙여넣기.", "subhead": "세 단계. 번거로움 제로." },
+  "screenshot_3": { "headline": "메뉴 막대에 상주", "subhead": "항상 준비, 절대 방해 없음." },
+  "screenshot_4": { "headline": "드래그도, 우회도 없이.", "subhead": "원래 기대했던 그대로." },
+  "screenshot_5": { "headline": "몇 초면 설정 완료", "subhead": "한 번의 클릭으로 준비." }
+}

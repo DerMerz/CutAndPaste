@@ -1,0 +1,10 @@
+{
+  "_app": "CutAndPaste",
+  "_locale": "zh-Hans",
+  "_source": "Translated from en-US screenshot headlines on 2026-05-16",
+  "screenshot_1": { "headline": "终于,真正的 ⌘X。", "subhead": "文件剪切粘贴,本该如此。" },
+  "screenshot_2": { "headline": "剪切。前往。粘贴。", "subhead": "三步搞定,毫不费劲。" },
+  "screenshot_3": { "headline": "常驻菜单栏", "subhead": "随时待命,从不碍事。" },
+  "screenshot_4": { "headline": "无需拖拽,无需变通。", "subhead": "本就应该是这样。" },
+  "screenshot_5": { "headline": "几秒完成设置", "subhead": "一次点击,立即可用。" }
+}
