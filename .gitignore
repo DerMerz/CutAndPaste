@@ -47,3 +47,6 @@ secrets/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# Secrets
+fastlane/api_key.json

@@ -1,0 +1,4 @@
+app_identifier("de.merzkevin.cutandmove")
+team_id("99BY432SRB")
+
+json_key_file("fastlane/api_key.json")
