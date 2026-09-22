@@ -50,3 +50,7 @@ secrets/
 
 # Secrets
 fastlane/api_key.json
+logs/
+test-artifacts/
+fastlane/report.xml
+*.xcresult
