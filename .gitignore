@@ -54,3 +54,8 @@ logs/
 test-artifacts/
 fastlane/report.xml
 *.xcresult
+Screenshots/
+screenshots/
+screenshots_*/
+Screenshots_*/
+*.render.zip
